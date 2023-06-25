@@ -9,7 +9,6 @@
     <version>1.0</version>
     <packaging>pom</packaging>
     <modules>
-        <module>nacos-server</module>
         <module>patient-server</module>
         <module>booking-server</module>
         <module>payment-server</module>
@@ -37,6 +36,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <optional>true</optional>
+            </dependency>
+
             <!-- springCloud -->
 <!--            https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies-->
             <dependency>
@@ -82,5 +87,22 @@
             <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-configuration-processor</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

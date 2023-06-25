@@ -1,4 +1,5 @@
-package pojo;
+package org.huayuzhang.patient.pojo;
+
 import lombok.Data;
 @Data
 public class Patient {
