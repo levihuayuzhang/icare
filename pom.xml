@@ -71,14 +71,16 @@
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.version}</version>
             </dependency>
-
-            <!-- lombok -->
-<!--            https://mvnrepository.com/artifact/org.projectlombok/lombok-->
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-            </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <!-- lombok -->
+        <!--            https://mvnrepository.com/artifact/org.projectlombok/lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
