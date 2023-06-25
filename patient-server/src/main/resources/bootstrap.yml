@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: patientservice
+#  profiles:
+#    active: xx
+  cloud:
+    nacos:
+      server-addr: localhost:23348
+      config:
+        file-extension: yaml
+      discovery:
+        cluster-name: GLA
+#              namespace: xx

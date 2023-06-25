@@ -1,4 +1,4 @@
-package org.huayuzhang.patient.web;
+package org.huayuzhang.patient;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
