@@ -10,6 +10,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>patient-service</module>
+        <module>doctor-service</module>
+        <module>booking-service</module>
     </modules>
 
     <!--    https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-->
