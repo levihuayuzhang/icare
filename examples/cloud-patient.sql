@@ -18,11 +18,11 @@ CREATE TABLE `tb_patient`  (
                             ) ENGINE = InnoDB AUTO_INCREMENT = 109 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 /* add records */
-INSERT INTO `tb_patient` VALUES (1, '01111 111111', 'alice', 'Glasgow');
-INSERT INTO `tb_patient` VALUES (2, '02222 222222', 'bob', 'New York');
-INSERT INTO `tb_patient` VALUES (3, '03333 333333', 'john', 'Seoul');
-INSERT INTO `tb_patient` VALUES (4, '04444 444444', 'steven', 'Tokyo');
-INSERT INTO `tb_patient` VALUES (5, '05555 555555', 'thomas', 'Beijing');
-INSERT INTO `tb_patient` VALUES (6, '06666 666666', 'franklin', 'London');
+INSERT INTO `tb_patient` VALUES (1, 'alice','01111 111111', 'Glasgow');
+INSERT INTO `tb_patient` VALUES (2, 'bob', '02222 222222', 'New York');
+INSERT INTO `tb_patient` VALUES (3, 'john', '03333 333333', 'Seoul');
+INSERT INTO `tb_patient` VALUES (4, 'steven', '04444 444444', 'Tokyo');
+INSERT INTO `tb_patient` VALUES (5, 'thomas', '05555 555555', 'Beijing');
+INSERT INTO `tb_patient` VALUES (6, 'franklin','06666 666666', 'London');
 
 SET FOREIGN_KEY_CHECKS = 1;
