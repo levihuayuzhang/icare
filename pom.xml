@@ -7,29 +7,35 @@
     <groupId>org.huayuzhang</groupId>
     <artifactId>it-project</artifactId>
     <version>1.0</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>nacos-server</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>20</java.version>
-        <maven.compiler.source>20</maven.compiler.source>
-        <maven.compiler.target>20</maven.compiler.target>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
 
         <spring-cloud.version>2022.0.3</spring-cloud.version>
         <spring-cloud-alibaba.version>2022.0.0.0-RC2</spring-cloud-alibaba.version>
-<!--        <mysql.version>5.1.47</mysql.version>-->
+        <mysql.version>8.0.33</mysql.version>
         <mybatis.version>3.0.2</mybatis.version>
     </properties>
 
+<!--    https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.0</version>
+        <version>3.1.1</version>
     </parent>
 
     <dependencyManagement>
         <dependencies>
             <!-- springCloud -->
+<!--            https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId> <!-- for managing dependencies of spring cloud -->
@@ -38,6 +44,7 @@
                 <scope>import</scope>
             </dependency>
 
+<!--            https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-alibaba-dependencies-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -47,6 +54,7 @@
             </dependency>
 
             <!-- mysql driver -->
+<!--            https://mvnrepository.com/artifact/com.mysql/mysql-connector-j-->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
@@ -54,12 +62,15 @@
             </dependency>
 
             <!-- mybatis -->
+<!--            https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter-->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.version}</version>
             </dependency>
 
+            <!-- lombok -->
+<!--            https://mvnrepository.com/artifact/org.projectlombok/lombok-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
