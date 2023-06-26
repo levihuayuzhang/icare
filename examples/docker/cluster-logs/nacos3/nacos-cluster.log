@@ -1,4 +1,0 @@
-2023-06-27 00:38:13,624 INFO Current addressing mode selection : FileConfigMemberLookup
-
-2023-06-27 00:38:13,632 WARN [serverlist] updated to : [Member{ip='172.16.238.12', port=8848, state=UP, extendInfo={raftPort=7848, readyToUpgrade=true, version=2.2.3}}, Member{ip='172.16.238.11', port=8848, state=UP, extendInfo={raftPort=7848, readyToUpgrade=true}}, Member{ip='172.16.238.10', port=8848, state=UP, extendInfo={raftPort=7848, readyToUpgrade=true}}]
-
