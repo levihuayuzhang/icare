@@ -41,3 +41,11 @@ JDK version: `OpenJDK` 17.0.7(LTS)
 3. grpc port: ${server.port} + 1000
 4. grpc port for server: ${server.port} + 1001
 Thus, the clusters server ports should at least have at least 2 for offset.
+
+Stackholders(Roles):
+1. Patients
+2. Doctors
+3. Hospital
+   - Booking System
+   - Payment System
+4. Government (database manager)

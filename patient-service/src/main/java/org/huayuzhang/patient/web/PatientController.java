@@ -28,17 +28,17 @@ public class PatientController {
     @Autowired
     private PatternProperties properties;
 
-//    // test for dateformat pattern (nacos configuration center testing)
-//    @GetMapping("now")
-//    public String now() {
-//        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(properties.getDateformat()));
-//    }
-//
-//    // test for showing all pattern properties (nacos configuration center testing)
-//    @GetMapping("prop")
-//    public PatternProperties properties(){
-//        return properties;
-//    }
+    // test for dateformat pattern (nacos configuration center testing)
+    @GetMapping("now")
+    public String now() {
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(properties.getDateformat()));
+    }
+
+    // test for showing all pattern properties (nacos configuration center testing)
+    @GetMapping("prop")
+    public PatternProperties properties(){
+        return properties;
+    }
 
     /**
      * ip:port/patient/{id}
