@@ -1,0 +1,96 @@
+version: "3.8"
+services:
+  nacos1:
+    platform: linux/amd64
+    image: nacos/nacos-server:${NACOS_VERSION}
+    container_name: nacos1
+    networks:
+      nacos_net:
+        ipv4_address: 172.16.238.10
+    volumes:
+      - ./cluster-logs/nacos1:/home/nacos/logs
+    ports:
+      - "18848:8848"
+      - "19848:9848"
+    env_file:
+      - ../env/nacos-ip.env
+    restart: on-failure
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  nacos2:
+    platform: linux/amd64
+    image: nacos/nacos-server:${NACOS_VERSION}
+    container_name: nacos2
+    networks:
+      nacos_net:
+        ipv4_address: 172.16.238.11
+    volumes:
+      - ./cluster-logs/nacos2:/home/nacos/logs
+    ports:
+      - "18849:8848"
+      - "19849:9848"
+    env_file:
+      - ../env/nacos-ip.env
+    restart: always
+    depends_on:
+      mysql:
+        condition: service_healthy
+  nacos3:
+    platform: linux/amd64
+    image: nacos/nacos-server:${NACOS_VERSION}
+    container_name: nacos3
+    networks:
+      nacos_net:
+        ipv4_address: 172.16.238.12
+    volumes:
+      - ./cluster-logs/nacos3:/home/nacos/logs
+    ports:
+      - "18850:8848"
+      - "19850:9848"
+    env_file:
+      - ../env/nacos-ip.env
+    restart: always
+    depends_on:
+      mysql:
+        condition: service_healthy
+  mysql:
+    platform: linux/amd64
+    container_name: mysql
+    build:
+      context: .
+      dockerfile: ./image/mysql/8/Dockerfile
+    image: example/mysql:8
+    networks:
+      nacos_net:
+        ipv4_address: 172.16.238.13
+    env_file:
+      - ../env/mysql.env
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3309:3306"
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+  nginx:
+    container_name: nginx-server
+    image: nginx
+    networks:
+      nacos_net:
+        ipv4_address: 172.16.238.14
+    ports:
+      - "18888:18888"
+      - "19888:19888"
+    volumes:
+      - /Users/zhy/Documents/mscit/project/it-project-2721652z/examples/config/nginx.conf:/etc/nginx/nginx.conf
+networks:
+  nacos_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
