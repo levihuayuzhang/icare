@@ -7,7 +7,11 @@ Student Name: Huayu Zhang
 Student Number: 2721652z
 
 ## Description
-This is a distributed system based on Microservice architecture implemented by Spring Cloud Framework
+This is a distributed system based on Microservice architecture implemented by Spring Cloud Framework.
+
+The government will own and manage a central clinic database that can be accessed by hospital(doctors) and patients.
+
+I aim to make this system have strong robustness and high handling capacity with low latency, and can be applied in the industry.
 
 
 ## Environment Information:
@@ -20,7 +24,7 @@ JDK version: `OpenJDK` 17.0.7(LTS)
 ## Technology Stack
 1. `Spring Cloud Framework` ([Spring Cloud Alibaba](https://spring.io/projects/spring-cloud-alibaba)) - for integration of dependencies
 2. `Ribbon` - as load balancer
-3. `Eureka` or [Nacos](https://github.com/alibaba/nacos/) - Registration/Configuration center (implementation for `DiscoveryClient` and `ServiceRegistry` Interfaces)
+3. ~~`Eureka` or~~[Nacos](https://github.com/alibaba/nacos/) - Registration/Configuration center (implementation for `DiscoveryClient` and `ServiceRegistry` Interfaces)
 4. `Nginx` - front proxy also as front load balancer for web server
 
 ### Why use `Alibaba Nacos` rather than `Eureka`?
@@ -48,4 +52,4 @@ Stackholders(Roles):
 3. Hospital
    - Booking System
    - Payment System
-4. Government (database manager)
+4. Government (database owner & manager)
