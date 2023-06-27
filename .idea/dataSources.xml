@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@localhost" uuid="4580f67c-3f1e-4a08-8d9a-20ea26d092e3">
+    <data-source source="LOCAL" name="Central Database - MySQL Server @8.0" uuid="4580f67c-3f1e-4a08-8d9a-20ea26d092e3">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <remarks>local MySQL Server @8.0</remarks>
+      <remarks>The central databse that managed by government.</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="docker_mysql@8.0" uuid="3a360e20-f2bb-4d26-80a9-1d82f98422e6">
+    <data-source source="LOCAL" name="Nacos Database - MySQL Server @8.0" uuid="3a360e20-f2bb-4d26-80a9-1d82f98422e6">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
+      <remarks>The database driving the Nacos clusters.</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3309</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
