@@ -38,6 +38,7 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
+
   nacos3:
     platform: linux/amd64
     image: nacos/nacos-server:${NACOS_VERSION}
@@ -56,6 +57,7 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
+
   mysql:
     platform: linux/amd64
     container_name: mysql
@@ -77,8 +79,9 @@ services:
       interval: 5s
       timeout: 10s
       retries: 10
+
   nginx:
-    container_name: nginx-server
+    container_name: nginx
     image: nginx
     networks:
       nacos_net:
