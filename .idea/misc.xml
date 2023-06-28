@@ -15,7 +15,7 @@
       </set>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="openjdk17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="Oracle-17" project-jdk-type="JavaSDK">
     <output url="file:///tmp/it-project-2721652z" />
   </component>
 </project>
