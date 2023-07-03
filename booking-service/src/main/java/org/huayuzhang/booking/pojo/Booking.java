@@ -10,4 +10,7 @@ public class Booking {
 
     private Long docID; // doctor ID
     private Long ptID; // patient ID
+
+    private Doctor doctor;
+    private Patient patient;
 }
