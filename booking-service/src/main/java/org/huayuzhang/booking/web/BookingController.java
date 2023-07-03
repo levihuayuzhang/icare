@@ -9,15 +9,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Slf4j
+//@Slf4j
 @RestController
-@RequestMapping("/booking")
+@RequestMapping("booking")
 public class BookingController {
+
     @Autowired
     private BookingService bookingService;
 
     @GetMapping("/{bkID}")
-    public Booking queryByID(@PathVariable("bkID") Long bkID) {
-        return bookingService.queryById(bkID);
+    public Booking queryByBookingByPatientAndDoctorID(@PathVariable("bkID") Long bkID) {
+        return bookingService.queryBookingById(bkID);
     }
 }
