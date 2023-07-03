@@ -12,17 +12,17 @@
     <artifactId>patient-service</artifactId>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
-<!--            <version>4.0.3</version>-->
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-bootstrap</artifactId>-->
+<!--&lt;!&ndash;            <version>4.0.3</version>&ndash;&gt;-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -57,12 +57,12 @@
             <scope>compile</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.huayuzhang</groupId>
-            <artifactId>doctor-service</artifactId>
-            <version>1.0</version>
-            <scope>compile</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.huayuzhang</groupId>-->
+<!--            <artifactId>doctor-service</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
