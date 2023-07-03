@@ -19,11 +19,11 @@ CREATE TABLE `tb_booking`  (
 
 /* add records */
 
-INSERT INTO `tb_booking` VALUES (901, '2023-03-01', 1, 001, 1);
-INSERT INTO `tb_booking` VALUES (902, '2023-03-01', 2, 005, 3);
-INSERT INTO `tb_booking` VALUES (903, '2023-03-02', 3, 003, 6);
-INSERT INTO `tb_booking` VALUES (904, '2023-03-03', 4, 004, 5);
-INSERT INTO `tb_booking` VALUES (905, '2023-03-03', 5, 002, 4);
-INSERT INTO `tb_booking` VALUES (906, '2023-03-04', 6, 001, 2);
+INSERT INTO `tb_booking` VALUES (901, '2023-03-01', 1, 1001, 1);
+INSERT INTO `tb_booking` VALUES (902, '2023-03-01', 2, 1005, 3);
+INSERT INTO `tb_booking` VALUES (903, '2023-03-02', 3, 1003, 6);
+INSERT INTO `tb_booking` VALUES (904, '2023-03-03', 4, 1004, 5);
+INSERT INTO `tb_booking` VALUES (905, '2023-03-03', 5, 1002, 4);
+INSERT INTO `tb_booking` VALUES (906, '2023-03-04', 6, 1001, 2);
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -21,11 +21,11 @@ CREATE TABLE `tb_doctor`  (
 /* using my favorite singer for doctor name */
 /* for testing purpose, the phone number start from 7 */
 
-INSERT INTO `tb_doctor` VALUES (001, 'Dr. D.R.E','71111 111111', 'internal medicine center');
-INSERT INTO `tb_doctor` VALUES (002, 'Snoop Dogg', '72222 222222', 'orthopedics department');
-INSERT INTO `tb_doctor` VALUES (003, 'bbno$', '73333 333333', 'radiology department');
-INSERT INTO `tb_doctor` VALUES (004, 'Wu-Tang Clan', '74444 444444', 'gynaecology and obstetrics department');
-INSERT INTO `tb_doctor` VALUES (005, 'Linkin Park', '75555 555555', 'neonatology department');
-INSERT INTO `tb_doctor` VALUES (006, 'Bruno Mars','76666 666666', 'otolaryngology department');
+INSERT INTO `tb_doctor` VALUES (1001, 'Dr. D.R.E','71111 111111', 'internal medicine center');
+INSERT INTO `tb_doctor` VALUES (1002, 'Snoop Dogg', '72222 222222', 'orthopedics department');
+INSERT INTO `tb_doctor` VALUES (1003, 'bbno$', '73333 333333', 'radiology department');
+INSERT INTO `tb_doctor` VALUES (1004, 'Wu-Tang Clan', '74444 444444', 'gynaecology and obstetrics department');
+INSERT INTO `tb_doctor` VALUES (1005, 'Linkin Park', '75555 555555', 'neonatology department');
+INSERT INTO `tb_doctor` VALUES (1006, 'Bruno Mars','76666 666666', 'otolaryngology department');
 
 SET FOREIGN_KEY_CHECKS = 1;
