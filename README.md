@@ -19,8 +19,21 @@ I aim to make this system have strong robustness and high handling capacity with
 Version Control Matrix:
 (Based on [Spring Framework version](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions), and [Spring Cloud Documentation](https://spring.io/projects/spring-cloud))
 
+| Spring           | JDK         | Spring Cloud      | Spring Boot | MyBatis-Spring-Boot-Starter |
+|------------------|-------------|-------------------|-------------|-----------------------------|
+| 6.1.x (Nov 2023) | null        | 2022.0            | 3.0, 3.1    | null                        |
+| 6.0.x (Nov 2022) | 17+         | 2021.0 (2021.0.3) | 2.6, 2.7    | 2.3                         |
+| 5.3.x            | 1.8, 11, 17 | 2020.0 (2020.0.3) | 2.4 (2.5)   | 2.3                         |
+| 4.3.x    (EOL)   | 1.8         | --                | --          | --                          |
+| 3.2.x    (EOL)   | 1.8         | --                | --          | --                          |
 
-JDK version: `OpenJDK` 17.0.7(LTS)
+The project aiming to serve the industry, so the `EOL` (end of life) version should not be used (even most of the enterprises may still use the EOL version).
+
+Thus, the project plan to support Spring `5.3.x` first. Because it is the most stable version of spring ecosystem and have the `best compatibility` (support all `LTS` JDK for now).
+
+But for learning and coding style issue, temporary downgrade the spring cloud to `Hoxton.SR12`.
+
+~~JDK version: `OpenJDK` 17.0.7(LTS)~~
 
 [Nacos version: 2.2.3 (May 25th, 2023)](https://github.com/alibaba/nacos/releases/tag/2.2.3)
 
