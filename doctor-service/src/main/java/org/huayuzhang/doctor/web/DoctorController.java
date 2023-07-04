@@ -5,6 +5,7 @@ import org.huayuzhang.doctor.config.PatternProperties;
 import org.huayuzhang.doctor.pojo.Doctor;
 import org.huayuzhang.doctor.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +17,7 @@ import java.time.format.DateTimeFormatter;
 @Slf4j
 @RestController
 @RequestMapping("/doctor")
-//@RefreshScope
+@RefreshScope
 public class DoctorController {
     @Autowired
     private DoctorService doctorService;
