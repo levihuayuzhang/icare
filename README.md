@@ -1,6 +1,6 @@
 # IT Project
 
-## Project Name: `iCare` Hospital Service System
+## `iCare` Hospital Service System
 
 Student Name: Huayu Zhang
 
@@ -11,13 +11,13 @@ This is a distributed system based on Microservice architecture implemented by S
 
 The government will own and manage a central clinic database that can be accessed by hospital(doctors) and patients.
 
-I aim to make this system have strong robustness and high handling capacity with low latency, and can be applied in the industry.
+Project aims to make a system have strong robustness and high handling capacity with low latency, and can be applied in modern clinic industry.
 
 
 ## Environment Information:
 
 Version Control Matrix:
-(Based on [Spring Framework version](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions), and [Spring Cloud Documentation](https://spring.io/projects/spring-cloud))
+(Based on [Spring Framework version](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions), and [Spring Cloud Documentation](https://spring.io/projects/spring-cloud)) on the day of writing (Jul 7, 2023).
 
 | Spring           | JDK         | Spring Cloud      | Spring Boot | MyBatis-Spring-Boot-Starter |
 |------------------|-------------|-------------------|-------------|-----------------------------|

@@ -1,5 +1,0 @@
-@startuml
-Patients -> Nginx: Frontend access
-
-
-@enduml

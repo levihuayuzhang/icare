@@ -1,0 +1,22 @@
+@startuml
+
+collections "Nacos Clusters" as nacos
+collections "Patient Service Clusters" as ps
+collections "Doctor Service Clusters" as ds
+collections "Booking Service Clusters" as bs
+collections "Payment Service Clusters" as pas
+
+database "Nacos Database" as ndb
+database "Patient Service Database" as psdb
+database "Doctor Service Database" as dsdb
+database "Booking Service Database" as bsdb
+database "Payment Service Database" as pasdb
+
+group Service Database Queue
+ps -> psdb: Queue for Patient Service Information
+ds -> dsdb: Queue for Doctor Service Information
+bs -> bsdb: Queue for BookingService Information
+pas -> pasdb: Queue for Payment Service Information
+end
+
+@enduml
