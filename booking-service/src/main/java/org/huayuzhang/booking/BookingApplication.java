@@ -1,6 +1,6 @@
 package org.huayuzhang.booking;
 
-import org.huayuzhang.booking.config.DefaultFeignConfiguration;
+import org.huayuzhang.feign.config.DefaultFeignConfiguration;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 @MapperScan("org.huayuzhang.booking.mapper")
 @SpringBootApplication
-@EnableFeignClients(defaultConfiguration = DefaultFeignConfiguration.class)
+@EnableFeignClients(defaultConfiguration = DefaultFeignConfiguration.class, basePackages = "org.huayuzhang.feign.clients")
 public class BookingApplication {
     public static void main(String[] args) {
         SpringApplication.run(BookingApplication.class, args);

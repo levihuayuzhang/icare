@@ -1,11 +1,11 @@
 package org.huayuzhang.booking.service;
 
-import org.huayuzhang.booking.clients.DoctorClient;
-import org.huayuzhang.booking.clients.PatientClient;
+import org.huayuzhang.feign.clients.DoctorClient;
+import org.huayuzhang.feign.clients.PatientClient;
 import org.huayuzhang.booking.mapper.BookingMapper;
 import org.huayuzhang.booking.pojo.Booking;
-import org.huayuzhang.booking.pojo.Doctor;
-import org.huayuzhang.booking.pojo.Patient;
+import org.huayuzhang.feign.pojo.Doctor;
+import org.huayuzhang.feign.pojo.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

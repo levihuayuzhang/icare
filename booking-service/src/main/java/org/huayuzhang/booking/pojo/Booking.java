@@ -1,6 +1,8 @@
 package org.huayuzhang.booking.pojo;
 
 import lombok.Data;
+import org.huayuzhang.feign.pojo.Doctor;
+import org.huayuzhang.feign.pojo.Patient;
 
 @Data
 public class Booking {
