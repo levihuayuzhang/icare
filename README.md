@@ -63,10 +63,14 @@ But for learning and coding style issue, temporary downgrade the spring cloud to
 4. grpc port for server: ${server.port} + 1001
 Thus, the clusters server ports should at least have at least 2 for offset.
 
-Stackholders(Roles):
+#### Stackholders(Roles):
 1. Patients
 2. Doctors
 3. Hospital
    - Booking System
    - Payment System
 4. Government (database owner & manager)
+
+#### Fein Optimization:
+1. set log level to `BASIC` or `NONE` in production environment
+2. use `Apache HttpClient` or `OKHttp` for backend (support `connection pool`), rather than `URLConnection` (default).
