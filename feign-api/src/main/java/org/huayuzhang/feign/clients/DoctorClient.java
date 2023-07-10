@@ -1,6 +1,6 @@
-package org.huayuzhang.booking.clients;
+package org.huayuzhang.feign.clients;
 
-import org.huayuzhang.booking.pojo.Doctor;
+import org.huayuzhang.feign.pojo.Doctor;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

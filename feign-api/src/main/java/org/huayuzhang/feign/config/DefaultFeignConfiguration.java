@@ -1,4 +1,4 @@
-package org.huayuzhang.booking.config;
+package org.huayuzhang.feign.config;
 
 import feign.Logger;
 import org.springframework.context.annotation.Bean;
@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 public class DefaultFeignConfiguration {
     @Bean
     public Logger.Level logLevel() {
-        return Logger.Level.FULL;
+//        return Logger.Level.FULL;
+        return Logger.Level.BASIC;
     }
 }

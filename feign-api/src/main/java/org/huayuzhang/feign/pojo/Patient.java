@@ -1,4 +1,4 @@
-package org.huayuzhang.booking.pojo;
+package org.huayuzhang.feign.pojo;
 
 import lombok.Data;
 
