@@ -16,7 +16,7 @@ Project aims to make a system have strong robustness and high handling capacity 
 ## Project Architecture
 Main view of the project architecture:
 
-![Project architecture main view](./examples/drawio/diagrams/iCare-main.drawio.png)
+![Project architecture main view](./examples/drawio/diagrams/iCare-main.png)
 
 ## Environment Information:
 
