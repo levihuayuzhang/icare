@@ -13,6 +13,10 @@ The government will own and manage a central clinic database that can be accesse
 
 Project aims to make a system have strong robustness and high handling capacity with low latency, and can be applied in modern clinic industry.
 
+## Project Architecture
+Main view of the project architecture:
+
+![Project architecture main view](./examples/drawio/diagrams/iCare-main.drawio.png)
 
 ## Environment Information:
 
