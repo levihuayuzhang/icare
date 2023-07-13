@@ -1,0 +1,23 @@
+server:
+  port: 20080
+application:
+    name: gateway
+
+spring:
+  cloud:
+    nacos:
+      server-addr: localhost:18888
+    gateway:
+      routes:
+        - id: patientservice # routing configuration
+          uri: lb://patientservice # lb for load balance
+          predicates:
+            - Path=/patient/**
+        - id: doctorservice
+          uri: lb://doctorservice
+          predicates:
+            - Path=/doctor/**
+        - id: bookingservice
+          uri: lb://bookingservice
+          predicates:
+            - Path=/booking/**
