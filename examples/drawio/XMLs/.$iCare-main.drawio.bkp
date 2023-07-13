@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2023-07-12T05:36:09.232Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.1 Chrome/112.0.5615.204 Electron/24.6.1 Safari/537.36" etag="cqoXXCDDptVklJM3247c" version="21.6.1" type="device">
+<mxfile host="Electron" modified="2023-07-12T06:03:02.288Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.1 Chrome/112.0.5615.204 Electron/24.6.1 Safari/537.36" etag="39s12I5LRZ4rl8xEzZFG" version="21.6.1" type="device">
   <diagram name="Page-1" id="5f0bae14-7c28-e335-631c-24af17079c00">
-    <mxGraphModel dx="1754" dy="1184" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" background="none" math="0" shadow="1">
+    <mxGraphModel dx="2047" dy="1382" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" background="none" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -61,7 +61,7 @@
           <mxGeometry x="88.25" y="45" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="t3KPmfPiuo9anuLnNl-u-12" value="Web Services" style="swimlane;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="1834" y="670" width="864" height="770" as="geometry" />
+          <mxGeometry x="1838" y="670" width="856" height="740" as="geometry" />
         </mxCell>
         <mxCell id="t3KPmfPiuo9anuLnNl-u-21" value="Booking Service" style="swimlane;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-12">
           <mxGeometry x="36" y="30" width="306" height="320" as="geometry" />
@@ -72,19 +72,19 @@
         <mxCell id="t3KPmfPiuo9anuLnNl-u-58" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="t3KPmfPiuo9anuLnNl-u-21" source="t3KPmfPiuo9anuLnNl-u-23" target="t3KPmfPiuo9anuLnNl-u-57">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="t3KPmfPiuo9anuLnNl-u-23" value="Tomcat Server" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-21">
+        <mxCell id="t3KPmfPiuo9anuLnNl-u-23" value="Tomcat Server" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#b1ddf0;strokeColor=#10739e;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-21">
           <mxGeometry x="10" y="30" width="105" height="50" as="geometry" />
         </mxCell>
         <mxCell id="t3KPmfPiuo9anuLnNl-u-56" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=15;exitPerimeter=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="t3KPmfPiuo9anuLnNl-u-21" source="t3KPmfPiuo9anuLnNl-u-25" target="t3KPmfPiuo9anuLnNl-u-23">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="t3KPmfPiuo9anuLnNl-u-25" value="Booking Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=16;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-21">
+        <mxCell id="t3KPmfPiuo9anuLnNl-u-25" value="Booking Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=16;fillColor=#fad9d5;strokeColor=#ae4132;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-21">
           <mxGeometry x="17.5" y="180" width="90" height="100" as="geometry" />
         </mxCell>
         <mxCell id="t3KPmfPiuo9anuLnNl-u-59" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.923;entryY=0.967;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="t3KPmfPiuo9anuLnNl-u-21" source="t3KPmfPiuo9anuLnNl-u-57" target="t3KPmfPiuo9anuLnNl-u-23">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="t3KPmfPiuo9anuLnNl-u-57" value="Feign Server" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-21">
+        <mxCell id="t3KPmfPiuo9anuLnNl-u-57" value="Feign Server" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-21">
           <mxGeometry x="161" y="130" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="t3KPmfPiuo9anuLnNl-u-60" value="Payment Service" style="swimlane;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-12">
@@ -96,19 +96,19 @@
         <mxCell id="t3KPmfPiuo9anuLnNl-u-62" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="t3KPmfPiuo9anuLnNl-u-60" source="t3KPmfPiuo9anuLnNl-u-63" target="t3KPmfPiuo9anuLnNl-u-67">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="t3KPmfPiuo9anuLnNl-u-63" value="Tomcat Server" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-60">
+        <mxCell id="t3KPmfPiuo9anuLnNl-u-63" value="Tomcat Server" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#b1ddf0;strokeColor=#10739e;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-60">
           <mxGeometry x="10" y="30" width="105" height="50" as="geometry" />
         </mxCell>
         <mxCell id="t3KPmfPiuo9anuLnNl-u-64" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=15;exitPerimeter=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="t3KPmfPiuo9anuLnNl-u-60" source="t3KPmfPiuo9anuLnNl-u-65" target="t3KPmfPiuo9anuLnNl-u-63">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="t3KPmfPiuo9anuLnNl-u-65" value="Booking Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=16;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-60">
+        <mxCell id="t3KPmfPiuo9anuLnNl-u-65" value="Booking Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=16;fillColor=#fad9d5;strokeColor=#ae4132;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-60">
           <mxGeometry x="17.5" y="180" width="90" height="100" as="geometry" />
         </mxCell>
         <mxCell id="t3KPmfPiuo9anuLnNl-u-66" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.923;entryY=0.967;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="t3KPmfPiuo9anuLnNl-u-60" source="t3KPmfPiuo9anuLnNl-u-67" target="t3KPmfPiuo9anuLnNl-u-63">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="t3KPmfPiuo9anuLnNl-u-67" value="Feign Server" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-60">
+        <mxCell id="t3KPmfPiuo9anuLnNl-u-67" value="Feign Server" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-60">
           <mxGeometry x="161" y="130" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="t3KPmfPiuo9anuLnNl-u-69" value="Patient Service" style="swimlane;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-12">
@@ -117,13 +117,13 @@
         <mxCell id="t3KPmfPiuo9anuLnNl-u-70" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=15;entryPerimeter=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="t3KPmfPiuo9anuLnNl-u-69" source="t3KPmfPiuo9anuLnNl-u-72" target="t3KPmfPiuo9anuLnNl-u-74">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="t3KPmfPiuo9anuLnNl-u-72" value="Tomcat Server" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-69">
+        <mxCell id="t3KPmfPiuo9anuLnNl-u-72" value="Tomcat Server" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#b1ddf0;strokeColor=#10739e;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-69">
           <mxGeometry x="100.5" y="50" width="105" height="50" as="geometry" />
         </mxCell>
         <mxCell id="t3KPmfPiuo9anuLnNl-u-73" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=15;exitPerimeter=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="t3KPmfPiuo9anuLnNl-u-69" source="t3KPmfPiuo9anuLnNl-u-74" target="t3KPmfPiuo9anuLnNl-u-72">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="t3KPmfPiuo9anuLnNl-u-74" value="Booking Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=16;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-69">
+        <mxCell id="t3KPmfPiuo9anuLnNl-u-74" value="Booking Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=16;fillColor=#fad9d5;strokeColor=#ae4132;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-69">
           <mxGeometry x="100.5" y="180" width="90" height="100" as="geometry" />
         </mxCell>
         <mxCell id="t3KPmfPiuo9anuLnNl-u-85" value="Doctor Service" style="swimlane;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-12">
@@ -132,13 +132,13 @@
         <mxCell id="t3KPmfPiuo9anuLnNl-u-86" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=15;entryPerimeter=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="t3KPmfPiuo9anuLnNl-u-85" source="t3KPmfPiuo9anuLnNl-u-87" target="t3KPmfPiuo9anuLnNl-u-89">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="t3KPmfPiuo9anuLnNl-u-87" value="Tomcat Server" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-85">
+        <mxCell id="t3KPmfPiuo9anuLnNl-u-87" value="Tomcat Server" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#b1ddf0;strokeColor=#10739e;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-85">
           <mxGeometry x="100.5" y="50" width="105" height="50" as="geometry" />
         </mxCell>
         <mxCell id="t3KPmfPiuo9anuLnNl-u-88" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=15;exitPerimeter=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="t3KPmfPiuo9anuLnNl-u-85" source="t3KPmfPiuo9anuLnNl-u-89" target="t3KPmfPiuo9anuLnNl-u-87">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="t3KPmfPiuo9anuLnNl-u-89" value="Booking Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=16;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-85">
+        <mxCell id="t3KPmfPiuo9anuLnNl-u-89" value="Booking Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=16;fillColor=#fad9d5;strokeColor=#ae4132;" vertex="1" parent="t3KPmfPiuo9anuLnNl-u-85">
           <mxGeometry x="100.5" y="180" width="90" height="100" as="geometry" />
         </mxCell>
         <mxCell id="t3KPmfPiuo9anuLnNl-u-90" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="t3KPmfPiuo9anuLnNl-u-12" source="t3KPmfPiuo9anuLnNl-u-57" target="t3KPmfPiuo9anuLnNl-u-72">
