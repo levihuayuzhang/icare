@@ -1,9 +1,8 @@
 server:
   port: 20080
-application:
-    name: gateway
-
 spring:
+  application:
+    name: gateway
   cloud:
     nacos:
       server-addr: localhost:18888
