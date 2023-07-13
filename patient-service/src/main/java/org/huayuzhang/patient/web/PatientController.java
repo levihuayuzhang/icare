@@ -6,10 +6,7 @@ import org.huayuzhang.patient.pojo.Patient;
 import org.huayuzhang.patient.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -49,7 +46,9 @@ public class PatientController {
      * @return database query in cloud_patient for corresponding patient ID
      */
     @GetMapping("/{id}")
-    public Patient queryById(@PathVariable("id") Long id) {
+    public Patient queryById(@PathVariable("id") Long id, @RequestHeader(value="rfp", required = false) String rfp, @RequestHeader(value="rf", required = false) String rf) {
+        System.out.println("Request filter for patient service: " + rfp);
+        System.out.println("Request filter for all service: " + rf);
         return patientService.queryById(id);
     }
 }

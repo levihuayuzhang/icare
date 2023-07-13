@@ -12,6 +12,8 @@ spring:
           uri: lb://patientservice # lb for load balance
           predicates:
             - Path=/patient/**
+          filters:
+            - AddRequestHeader=rfp, This is routing filter of add request header for patient service!
         - id: doctorservice
           uri: lb://doctorservice
           predicates:
@@ -20,3 +22,5 @@ spring:
           uri: lb://bookingservice
           predicates:
             - Path=/booking/**
+      default-filters:
+        - AddRequestHeader=rf, This is routing filter of add request header for all service!
