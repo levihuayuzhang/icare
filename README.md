@@ -1,10 +1,12 @@
-# IT Project
+# `iCare` Clinical Service System
 
-## `iCare` Hospital Service System
+## COMPSCI5018P MSc Development Project for IT+ (2022-23)
 
 Student Name: Huayu Zhang
 
 Student Number: 2721652z
+
+University of Glasgow - School of Computing Science
 
 ## Description
 This is a distributed system based on Microservice architecture implemented by Spring Cloud Framework.
