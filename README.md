@@ -94,3 +94,16 @@ Thus, the clusters server ports should at least have at least 2 for offset.
 #### Fein Optimization:
 1. set log level to `BASIC` or `NONE` in production environment
 2. use `Apache HttpClient` or `OKHttp` for backend (support `connection pool`), rather than `URLConnection` (default).
+
+## Credits
+- Open source projects:
+  - [Spring Project](https://github.com/spring-projects/spring-framework)
+  - [Spring Cloud Alibaba](https://github.com/alibaba/spring-cloud-alibaba)
+  - [Redis Project](https://redis.io/)
+  - [Nginx Project](https://www.nginx.com/)
+  - [Apache Tomcat](https://tomcat.apache.org/)
+  - [OpenJDK](https://openjdk.org/)
+- Tutorials:
+  - Itcast:
+    - [Spring MVC](https://www.bilibili.com/video/BV1Bo4y117zV/?spm_id_from=333.999.0.0)
+    - [Spring Cloud](https://www.bilibili.com/video/BV1LQ4y127n4/?spm_id_from=333.999.0.0)
