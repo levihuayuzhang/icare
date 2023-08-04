@@ -40,5 +40,4 @@ build/
 **/target
 
 **/logs
-examples/docker/cluster-logs
-examples/docker/mysql
+examples/docker/tmp
