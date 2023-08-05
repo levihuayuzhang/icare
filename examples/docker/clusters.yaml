@@ -16,6 +16,11 @@ services:
     env_file:
       - ./env/nacos-ip.env
     restart: on-failure
+    healthcheck:
+      test: [ "CMD", "curl", "http://localhost:8848/nacos"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
     depends_on:
       mysql:
         condition: service_healthy
@@ -35,6 +40,11 @@ services:
     env_file:
       - ./env/nacos-ip.env
     restart: always
+    healthcheck:
+      test: [ "CMD", "curl", "http://localhost:8848/nacos"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
     depends_on:
       mysql:
         condition: service_healthy
@@ -54,6 +64,11 @@ services:
     env_file:
       - ./env/nacos-ip.env
     restart: always
+    healthcheck:
+      test: [ "CMD", "curl", "http://localhost:8848/nacos"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
     depends_on:
       mysql:
         condition: service_healthy
@@ -109,6 +124,66 @@ services:
       interval: 5s
       timeout: 10s
       retries: 10
+  patientservice:
+    build: ./image/patient-service
+    platform: linux/amd64
+    depends_on:
+      nacos1:
+        condition: service_healthy
+      nacos2:
+        condition: service_healthy
+      nacos3:
+        condition: service_healthy
+    ports:
+      - "23001:23001"
+    networks:
+      nacos_net:
+        ipv4_address: 172.16.238.16
+  doctorservice:
+    build: ./image/doctor-service
+    platform: linux/amd64
+    depends_on:
+      nacos1:
+        condition: service_healthy
+      nacos2:
+        condition: service_healthy
+      nacos3:
+        condition: service_healthy
+    ports:
+      - "23002:23002"
+    networks:
+      nacos_net:
+        ipv4_address: 172.16.238.17
+  bookingservice:
+    build: ./image/booking-service
+    platform: linux/amd64
+    depends_on:
+      nacos1:
+        condition: service_healthy
+      nacos2:
+        condition: service_healthy
+      nacos3:
+        condition: service_healthy
+    ports:
+      - "23003:23003"
+    networks:
+      nacos_net:
+        ipv4_address: 172.16.238.18
+  gateway:
+    build: ./image/gateway
+    platform: linux/amd64
+    depends_on:
+      nacos1:
+        condition: service_healthy
+      nacos2:
+        condition: service_healthy
+      nacos3:
+        condition: service_healthy
+    ports:
+      - "20080:20080"
+    networks:
+      nacos_net:
+        ipv4_address: 172.16.238.19
 networks:
   nacos_net:
     driver: bridge
