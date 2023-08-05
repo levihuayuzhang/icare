@@ -1,4 +1,6 @@
 # run in root directory
+# sh run-project.sh
+
 mvn clean package
 
 cp ./booking-service/target/app.jar ./examples/docker/image/booking-service/
