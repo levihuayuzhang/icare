@@ -12,7 +12,7 @@ CREATE TABLE `tb_payment`  (
                                `pmID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'payment ID',
                                `ptID` bigint(20) NOT NULL COMMENT 'patient ID',
                                `docID` bigint(20) NOT NULL COMMENT 'doctor ID',
-                               `pmDate` DATETIME COMMENT 'payment time',
+                               `pmTime` DATETIME COMMENT 'payment time',
                                PRIMARY KEY (`pmID`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 109 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
