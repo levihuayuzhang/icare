@@ -9,10 +9,7 @@ import org.huayuzhang.feign.pojo.Patient;
 @Data
 public class Payment {
     private Long pmID; // payment ID
-
-    private SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private Date date = new Date();
-    private String paymentTime = sdf.format(date);
+    private String pmTime; // payment time
 
     private Long docID; // doctor ID
     private Long ptID; // patient ID
