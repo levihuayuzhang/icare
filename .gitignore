@@ -42,3 +42,4 @@ build/
 **/logs
 examples/docker/tmp
 **/app.jar
+*.log
