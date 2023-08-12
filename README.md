@@ -22,7 +22,7 @@ Main view of the project architecture:
 
 ## Requirement Capture (MoSCoW)
 - [x] (Must) Microservice for patient, healthcare provider, manager, logging system (web server and databases)
-- [ ] (Must) Booking system and payment system.
+- [x] (Must) Booking system and payment system.
 - [x] (Must) Load balancer and reverse proxy
 - [x] (Must) Service Registry and configuration center
 - [x] (Must) Docker container and building automation.
@@ -31,8 +31,8 @@ Main view of the project architecture:
 - [ ] (Could) Newer dependencies (more advanced technology and coding style)
 - [ ] (Could) Pharmacy service, etc.
 - [ ] (Could) High-definition image storing and support and multiple format support in database (for radioscopy, or orthodontics clinic…)
-- [ ] (Could) CDN support
-- [ ] (Could) Cross plant form frontend applications for demonstration purpose (Web, Darwin, Win64, GNU/Linux, IOS, Android…)
+- [ ] (Could) CDN (Content Distribution Network) support
+- [ ] (Could) Cross platform frontend applications for demonstration purpose (Web, Darwin, Win64, GNU/Linux, IOS, Android…)
 
 ## Environment Information:
 
