@@ -1,38 +1,46 @@
-# `iCare` Clinical Service System
+# iCare: A Clinical Service System
 
 ## COMPSCI5018P MSc Development Project for IT+ (2022-23)
 
-Student Name: Huayu Zhang
+Student Name: `Huayu Zhang`
 
-Student Number: 2721652z
+Student Number: `2721652z`
 
-University of Glasgow - School of Computing Science
+`University of Glasgow` - `School of Computing Science`
 
 ## Description
-This is a distributed system based on Microservice architecture implemented by Spring Cloud Framework.
+This is a distributed system based on Microservice architecture implemented by `Spring Cloud Framework`.
 
-The government will own and manage a central clinic database that can be accessed by hospital(doctors) and patients.
+The government will own and manage a central clinic database that can be accessed by hospital (doctors) and patients.
 
 Project aims to make a system have strong robustness and high handling capacity with low latency, and can be applied in modern clinic industry.
 
 ## Project Architecture
-Main view of the project architecture:
+Main view of the project architecture (best practice design):
 
-![Project architecture main view](./examples/drawio/diagrams/iCare-main.drawio.png)
+![Project architecture main view (best practice design)](./examples/drawio/diagrams/iCare-best-practice.drawio.png)
+
+Current code space status of the project (development & deploy environment) 
+(simplified for better debugging and saving local machine performance):
+
+![code space status of the project](./examples/drawio/diagrams/iCare-dev-env.drawio.png)
 
 ## Requirement Capture (MoSCoW)
 - [x] (Must) Microservice for patient, healthcare provider, manager, logging system (web server and databases)
 - [x] (Must) Booking system and payment system.
-- [x] (Must) Load balancer and reverse proxy
-- [x] (Must) Service Registry and configuration center
+- [x] (Must) Load balancer and reverse proxy.
+- [x] (Must) Service Registry and configuration center.
 - [x] (Must) Docker container and building automation.
-- [ ] (Should) Distributed cache
-- [ ] (Should) Microservices for database owner (e.g., government), researchers, pharmacy corporations
-- [ ] (Could) Newer dependencies (more advanced technology and coding style)
-- [ ] (Could) Pharmacy service, etc.
-- [ ] (Could) High-definition image storing and support and multiple format support in database (for radioscopy, or orthodontics clinic…)
-- [ ] (Could) CDN (Content Distribution Network) support
-- [ ] (Could) Cross platform frontend applications for demonstration purpose (Web, Darwin, Win64, GNU/Linux, IOS, Android…)
+- [ ] (Should) Message queue.
+- [ ] (Should) Distributed cache.
+- [ ] (Should) Microservices for database owner (e.g., government), researchers, pharmacy corporations (multi-level administration and authorization).
+- [ ] (Should) Full data CRUD (Create, Retrieve, Update, Delete) (Create and Retrieve has been done) (Update and delete should develop along with frontend).
+- [ ] (Could) Cross platform frontend applications for demonstration purpose (Web, Darwin, Win64, GNU/Linux, IOS, Android…).
+- [ ] (Could) Newer dependencies (more advanced technology and coding style).
+- [ ] (Could) Spring security, data desensitization (for researching Big data and Machine Learning Data Sets) and more cryptography.
+- [ ] (Could) More feature: Pharmacy service, etc.
+- [ ] (Could) High-definition image storing and support and multiple format support in database (for radioscopy, or orthodontics clinic…).
+- [ ] (Could) CDN (Content Distribution Network) support.
 
 ## Environment Information:
 
@@ -53,7 +61,7 @@ Thus, the project plan to support Spring `5.3.x` first. Because it is the most s
 
 But for learning and coding style issue, temporary downgrade the spring cloud to `Hoxton.SR12`.
 
-~~JDK version: `OpenJDK` 17.0.7(LTS)~~
+JDK version: `OpenJDK` 1.8 (8.0) (x86_64).
 
 [Nacos version: 2.2.3 (May 25th, 2023)](https://github.com/alibaba/nacos/releases/tag/2.2.3)
 
@@ -61,8 +69,15 @@ But for learning and coding style issue, temporary downgrade the spring cloud to
 ## Technology Stack
 1. `Spring Cloud Framework` ([Spring Cloud Alibaba](https://spring.io/projects/spring-cloud-alibaba)) - for integration of dependencies
 2. `Ribbon` - as load balancer
-3. ~~`Eureka` or~~[Nacos](https://github.com/alibaba/nacos/) - Registration/Configuration center (implementation for `DiscoveryClient` and `ServiceRegistry` Interfaces)
+3. ~~`Eureka` or~~ [Nacos](https://github.com/alibaba/nacos/) - Registration/Configuration center (implementation for `DiscoveryClient` and `ServiceRegistry` Interfaces)
 4. `Nginx` - front proxy also as front load balancer for web server
+5. `MySQL` as database for Nacos clusters and services' clusters.
+
+## Demonstration for single request inside the system 
+
+Request booking service as example:
+
+![Request booking service](./examples/drawio/diagrams/iCare-request-bk-service.drawio.png)
 
 ### Why use `Alibaba Nacos` rather than `Eureka`?
 1. More feature 
@@ -107,3 +122,4 @@ Thus, the clusters server ports should at least have at least 2 for offset.
   - Itcast:
     - [Spring MVC](https://www.bilibili.com/video/BV1Bo4y117zV/?spm_id_from=333.999.0.0)
     - [Spring Cloud](https://www.bilibili.com/video/BV1LQ4y127n4/?spm_id_from=333.999.0.0)
+    - [Jmeter](https://www.bilibili.com/video/BV1ty4y1q72g?p=1)
