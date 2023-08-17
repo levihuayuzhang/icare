@@ -34,6 +34,8 @@ Test:
 ```shell
 sh test-project.sh  # under project root directory
 ```
+Testing result can be viewed at `testing/Jmeter/webreport/index.html `.
+
 Prepare for Database:
 
 Create corresponding tables for each Microservice and run SQL scripts under `examples/SQLs`.
