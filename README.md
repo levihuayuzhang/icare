@@ -25,6 +25,19 @@ Current code space status of the project (development & deploy environment)
 
 ![code space status of the project](./examples/drawio/diagrams/iCare-dev-env.drawio.png)
 
+## How to
+Run:
+```shell
+sh run-project.sh # under project root directory
+```
+Test:
+```shell
+sh test-project.sh  # under project root directory
+```
+Prepare for Database:
+
+Create corresponding tables for each Microservice and run SQL scripts under `examples/SQLs`.
+
 ## Requirement Capture (MoSCoW)
 - [x] (Must) Microservice for patient, healthcare provider, manager, logging system (web server and databases)
 - [x] (Must) Booking system and payment system.
