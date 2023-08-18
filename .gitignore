@@ -45,5 +45,5 @@ examples/docker/tmp
 *.log
 *.jar
 
-testing/Jmeter/result/
-testing/Jmeter/webreport
+#testing/Jmeter/result/
+#testing/Jmeter/webreport
