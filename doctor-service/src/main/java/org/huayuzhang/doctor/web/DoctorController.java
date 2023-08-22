@@ -29,13 +29,23 @@ public class DoctorController {
     @Autowired
     private PatternProperties properties;
 
-    // test for dateformat pattern (nacos configuration center testing)
+    /**
+     * test for dateformat pattern (nacos configuration center testing)
+     *
+     * @return the properties of datetime format
+     * @author Huayu Zhang
+     */
     @GetMapping("now")
     public String now() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern(properties.getDateformat()));
     }
 
-    // test for showing all pattern properties (nacos configuration center testing)
+    /**
+     * test for showing all pattern properties (nacos configuration center testing)
+     *
+     * @return pattern properties as a JSON package (include all configuration of pattern properties)
+     * @author Huayu Zhang
+     */
     @GetMapping("prop")
     public PatternProperties properties(){
         return properties;

@@ -1,6 +1,11 @@
 package org.huayuzhang.patient.pojo;
 
 import lombok.Data;
+/**
+ * define the data fields of patient
+ *
+ * @author Huayu Zhang
+ */
 @Data
 public class Patient {
     private Long id; // patient ID

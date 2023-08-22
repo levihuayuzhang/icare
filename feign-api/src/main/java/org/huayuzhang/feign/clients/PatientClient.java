@@ -7,7 +7,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient("patientservice")
 public interface PatientClient {
-
+    /**
+     * define the path mapping of feign API request
+     *
+     * @param id patient ID
+     * @return patient object
+     * @author Huayu Zhang
+     */
     @GetMapping("/patient/{id}")
     Patient findById(@PathVariable("id") Long id);
 }

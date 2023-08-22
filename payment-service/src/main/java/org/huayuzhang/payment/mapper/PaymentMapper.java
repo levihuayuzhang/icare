@@ -1,9 +1,17 @@
 package org.huayuzhang.payment.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.huayuzhang.payment.pojo.Payment;
 
 public interface PaymentMapper {
+    /**
+     * query the payment from database using SQL statement with parameter of doctor ID
+     *
+     * @param pmID Payment ID
+     * @return payment object
+     * @author Huayu Zhang
+     */
     @Select("select * from tb_payment where pmID = #{pmID}")
-    Payment findById(Long bkID);
+    Payment findById(@Param("pmID") Long pmID);
 }

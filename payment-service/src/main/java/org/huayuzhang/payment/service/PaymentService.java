@@ -19,7 +19,12 @@ public class PaymentService {
 
     @Autowired
     private PatientClient patientClient;
-
+    /**
+     * query doctor object by using payment ID passed from request
+     * @param pmID payment ID
+     * @return payment object
+     * @author Huayu Zhang
+     */
     public Payment queryPaymentByID(Long pmID) {
         Payment payment = paymentMapper.findById(pmID);
 

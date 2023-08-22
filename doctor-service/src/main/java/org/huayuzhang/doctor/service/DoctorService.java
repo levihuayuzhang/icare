@@ -10,6 +10,12 @@ public class DoctorService {
     @Autowired
     private DoctorMapper doctorMapper;
 
+    /**
+     * query doctor object by using doctor ID passed from request
+     * @param id doctor ID
+     * @return doctor object
+     * @author Huayu Zhang
+     */
     public Doctor queryById(Long id) {
 
         return doctorMapper.findById(id);
