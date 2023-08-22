@@ -45,7 +45,7 @@ public class DoctorController {
      * ip:port/patient/{id}
      * to access cloud_doctor database
      *
-     * @param id
+     * @param id doctor ID
      * @return database query in cloud_doctor for corresponding doctor ID
      */
     @GetMapping("/{id}")

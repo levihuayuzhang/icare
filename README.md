@@ -40,6 +40,9 @@ Prepare for Database:
 
 Create corresponding tables for each Microservice and run SQL scripts under `examples/SQLs`.
 
+## Documentation
+JavaDoc: Rendered HTML JavaDoc is located in `Documenrations/JavaDoc`
+
 ## Requirement Capture (MoSCoW)
 - [x] (Must) Microservice for patient, healthcare provider, manager, logging system (web server and databases)
 - [x] (Must) Booking system and payment system.

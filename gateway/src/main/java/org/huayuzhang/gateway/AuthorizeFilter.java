@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 
 /**
  * Global filter
- * priority: default > routing > global
+ * The priority of filter: 1. default, 2. routing, 3. global
  *
  * e.g. http://127.0.0.1:20080/booking/901?authorization=admin
  * for booking ID 901 with authorization as admin

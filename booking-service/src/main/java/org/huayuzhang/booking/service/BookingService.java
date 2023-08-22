@@ -9,6 +9,12 @@ import org.huayuzhang.feign.pojo.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * The service class of Booking service
+ *
+ * @author Huayu Zhang
+ * @since JDK 1.8
+ */
 @Service
 public class BookingService {
     @Autowired
@@ -20,6 +26,11 @@ public class BookingService {
     @Autowired
     private PatientClient patientClient;
 
+    /**
+     * Query Booking object by using booking ID
+     * @param bkID booking ID
+     * @return the target Booking object
+     */
     public Booking queryBookingById(Long bkID) {
         // query for booking
         Booking booking = bookingMapper.findById(bkID);

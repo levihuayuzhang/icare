@@ -42,7 +42,10 @@ public class PatientController {
      * ip:port/patient/{id}
      * to access cloud_patient database
      *
-     * @param id
+     *
+     * @param id patient ID
+     * @param rfp request filter for patient service
+     * @param rf request filter for all services
      * @return database query in cloud_patient for corresponding patient ID
      */
     @GetMapping("/{id}")

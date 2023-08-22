@@ -9,10 +9,19 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * spring application class contain the main class for booking service
+ */
 @MapperScan("org.huayuzhang.booking.mapper")
 @SpringBootApplication
 @EnableFeignClients(defaultConfiguration = DefaultFeignConfiguration.class, basePackages = "org.huayuzhang.feign.clients")
 public class BookingApplication {
+    /**
+     * main class of booking application
+     *
+     * @param args program arguments
+     * @author: Huayu Zhang
+     */
     public static void main(String[] args) {
         SpringApplication.run(BookingApplication.class, args);
     }
@@ -20,7 +29,7 @@ public class BookingApplication {
     /**
      * create RestTemplate and inject Spring container
      *
-     * @return
+     * @return RestTemplate class object
      */
     @Bean
     @LoadBalanced

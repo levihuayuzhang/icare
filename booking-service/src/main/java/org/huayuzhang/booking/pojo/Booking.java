@@ -4,6 +4,12 @@ import lombok.Data;
 import org.huayuzhang.feign.pojo.Doctor;
 import org.huayuzhang.feign.pojo.Patient;
 
+/**
+ * Pojo Class for containing booking data
+ *
+ * @author Huayu Zhang
+ * @since JDK 1.8
+ */
 @Data
 public class Booking {
     private Long bkID; // booking ID
