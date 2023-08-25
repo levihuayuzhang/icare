@@ -28,7 +28,7 @@ Current code space status of the project (development & deploy environment)
 ## How to
 Run:
 ```shell
-sh run-project.sh # under project root directory
+sh deploy-project.sh # under project root directory
 ```
 Test:
 ```shell

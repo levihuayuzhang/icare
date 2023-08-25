@@ -5,8 +5,8 @@ spring:
     name: gateway
   cloud:
     nacos:
-#      server-addr: localhost:18888
-      server-addr: 172.16.238.14:18888
+      server-addr: localhost:8848
+#      server-addr: 172.16.238.14:18888
     gateway:
       routes:
         - id: patientservice # routing configuration

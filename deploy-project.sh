@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # run this script in root directory
-# sh run-project.sh
+# sh deploy-project.sh
 
 # clean maven project builds and recompiling & repackaging
 mvn clean package
@@ -14,9 +14,9 @@ cp ./booking-service/target/app.jar ./examples/docker/image/booking-service/
 cp ./gateway/target/app.jar ./examples/docker/image/gateway/
 
 # enter into Docker directory, build image and start up container clusters
-cd ./examples/docker
-docker-compose -f clusters.yaml up --build -d
+cd ./examples/icare-docker-deploy
+docker-compose -f clusters-ip.yaml up --build -d
 
 # in case health check of Nacos not work, use wait commands...
 #sleep 90
-#docker-compose -f clusters.yaml restart gateway patientservice doctorservice bookingservice
+#docker-compose -f clusters-ip.yaml restart gateway patientservice doctorservice bookingservice

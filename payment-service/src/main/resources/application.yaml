@@ -2,7 +2,7 @@ server:
   port: 23004
 spring:
   datasource:
-    url: jdbc:mysql://172.16.238.15:3306/cloud_payment?useSSL=false
+    url: jdbc:mysql://localhost:3306/cloud_payment?useSSL=false
 #    url: jdbc:mysql://localhost:3306/cloud_payment?useSSL=false
     # driver-class-name: com.mysql.jdbc.Driver
     username: root

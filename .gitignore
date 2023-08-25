@@ -40,7 +40,8 @@ build/
 **/target
 
 **/logs
-examples/docker/tmp
+examples/icare-docker-deploy/tmp
+examples/icare-docker-dev/tmp
 **/app.jar
 *.log
 *.jar
