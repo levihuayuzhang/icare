@@ -14,7 +14,7 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
-    restart: always
+#    restart: always
   mysql:
     container_name: icare-mysql-dev
     build:
