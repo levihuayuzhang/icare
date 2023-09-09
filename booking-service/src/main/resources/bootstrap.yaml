@@ -1,0 +1,15 @@
+server:
+  port: 23003
+spring:
+  application:
+    name: bookingservice
+  cloud:
+    nacos:
+      #      server-addr: 172.16.238.14:18888  # internal IP address of Docker Network (Nacos Network) and port of Nginx (reverse proxy for Nacos clusters)
+      server-addr: localhost:8848  # internal IP address of Docker Network (Nacos Network) and port of Nginx (reverse proxy for Nacos clusters)
+      config:
+        file-extension: yaml
+      discovery:
+        # server-addr: 172.16.238.14:18888
+        cluster-name: GLA
+        # namespace: xx

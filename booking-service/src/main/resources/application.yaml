@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloud_booking?useSSL=false
+    username: root
+    password: root
+  #    driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  type-aliases-package: org.huayuzhang.booking.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    org.huayuzhang: debug
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss:SSS
+feign:
+  client:
+    config:
+      default:
+        logger-level: FULL
+  httpclient:
+    enabled: true
+    max-connections: 1000
+    max-connections-per-route: 250
