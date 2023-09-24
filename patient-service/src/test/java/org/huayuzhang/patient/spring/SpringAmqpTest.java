@@ -30,6 +30,12 @@ public class SpringAmqpTest {
             rabbitTemplate.convertAndSend(queueName, msg + " " + i);
             Thread.sleep(20);
         }
+    }
 
+    @Test
+    public void testSendFanoutExchange() {
+        String exchangeName = "ph1nix.fanout";
+        String msg = "This is the message through exchange";
+        rabbitTemplate.convertAndSend(exchangeName, "", msg);
     }
 }

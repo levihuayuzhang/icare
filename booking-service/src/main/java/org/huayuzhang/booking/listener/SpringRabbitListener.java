@@ -24,4 +24,17 @@ public class SpringRabbitListener {
         System.err.println("                      "+msg);
         Thread.sleep(500); // simulate different consume power
     }
+
+    @RabbitListener(queues = "fanout.queue1")
+    public void listenFanoutQueue1(String msg) {
+        System.out.println("fanout.queue1 Got message:");
+        System.out.println(msg);
+    }
+
+    @RabbitListener(queues = "fanout.queue2")
+    public void listenFanoutQueue2(String msg) {
+        System.out.println("fanout.queue2 Got message:");
+        System.out.println(msg);
+    }
+
 }
