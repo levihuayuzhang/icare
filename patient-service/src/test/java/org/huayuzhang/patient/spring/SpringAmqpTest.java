@@ -21,4 +21,15 @@ public class SpringAmqpTest {
         String msg = "Shit! THis is the Spring AMQP!";
         rabbitTemplate.convertAndSend(queueName, msg);
     }
+
+    @Test
+    public void testSendMessageToWorkQueue() throws InterruptedException {
+        String queueName = "simple.queue";
+        String msg = "Work queue";
+        for (int i = 1; i <=50; i++) {
+            rabbitTemplate.convertAndSend(queueName, msg + " " + i);
+            Thread.sleep(20);
+        }
+
+    }
 }

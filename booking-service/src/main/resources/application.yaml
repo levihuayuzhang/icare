@@ -10,6 +10,9 @@ spring:
     virtual-host: /
     username: ph1nix
     password: ph1nix
+    listener:
+      simple:
+        prefetch: 1
 mybatis:
   type-aliases-package: org.huayuzhang.booking.pojo
   configuration:
