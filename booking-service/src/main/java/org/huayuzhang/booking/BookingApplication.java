@@ -1,5 +1,6 @@
 package org.huayuzhang.booking;
 
+import lombok.extern.slf4j.Slf4j;
 import org.huayuzhang.feign.config.DefaultFeignConfiguration;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * spring application class contain the main class for booking service
  */
+@Slf4j
 @MapperScan("org.huayuzhang.booking.mapper")
 @SpringBootApplication
 @EnableFeignClients(defaultConfiguration = DefaultFeignConfiguration.class, basePackages = "org.huayuzhang.feign.clients")
@@ -24,6 +26,7 @@ public class BookingApplication {
      */
     public static void main(String[] args) {
         SpringApplication.run(BookingApplication.class, args);
+        log.info("This is the booking boot application!");
     }
 
     /**
