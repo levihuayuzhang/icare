@@ -1,12 +1,24 @@
 server:
   port: 23004
 spring:
+  application:
+    name: paymentservice
+  config:
+    import:
+      - optional:nacos:payment-service.properties?refresh=true
   datasource:
     url: jdbc:mysql://localhost:3306/cloud_payment?useSSL=false
-#    url: jdbc:mysql://localhost:3306/cloud_payment?useSSL=false
-    # driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      #        namespace: xx
+      #        cluster-name: GLA
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
 mybatis:
   type-aliases-package: org.huayuzhang.payment.pojo
   configuration:

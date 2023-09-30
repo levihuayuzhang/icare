@@ -1,15 +1,31 @@
+server:
+  port: 23001
 spring:
+  application:
+    name: patientservice
+  config:
+    import:
+      - optional:nacos:patient-service.properties?refresh=true
   datasource:
     url: jdbc:mysql://localhost:3306/cloud_patient?useSSL=false
     username: root
     password: root
 #    driver-class-name: com.mysql.jdbc.Driver
-  rabbitmq:
-    host: localhost
-    port: 5672
-    virtual-host: /
-    username: ph1nix
-    password: ph1nix
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      #        namespace: xx
+      #        cluster-name: GLA
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    virtual-host: /
+#    username: ph1nix
+#    password: ph1nix
 mybatis:
   type-aliases-package: org.huayuzhang.patient.pojo
   configuration:

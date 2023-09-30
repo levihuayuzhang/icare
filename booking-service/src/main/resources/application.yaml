@@ -1,18 +1,35 @@
+server:
+  port: 23003
 spring:
+  application:
+    name: bookingservice
+  config:
+    import:
+      - optional:nacos:booking-service.properties?refresh=true
   datasource:
     url: jdbc:mysql://localhost:3306/cloud_booking?useSSL=false
     username: root
     password: root
   #    driver-class-name: com.mysql.jdbc.Driver
-  rabbitmq:
-    host: localhost
-    port: 5672
-    virtual-host: /
-    username: ph1nix
-    password: ph1nix
-    listener:
-      simple:
-        prefetch: 1
+  cloud:
+    nacos:
+      #      server-addr: 172.16.238.14:18888  # internal IP address of Docker Network (Nacos Network) and port of Nginx (reverse proxy for Nacos clusters)
+      server-addr: localhost:8848  # internal IP address of Docker Network (Nacos Network) and port of Nginx (reverse proxy for Nacos clusters)
+      config:
+        file-extension: yaml
+      discovery:
+        # server-addr: 172.16.238.14:18888
+        cluster-name: GLA
+        # namespace: xx
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    virtual-host: /
+#    username: ph1nix
+#    password: ph1nix
+#    listener:
+#      simple:
+#        prefetch: 1
 mybatis:
   type-aliases-package: org.huayuzhang.booking.pojo
   configuration:

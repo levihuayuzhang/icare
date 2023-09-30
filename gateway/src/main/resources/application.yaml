@@ -3,6 +3,9 @@ server:
 spring:
   application:
     name: gateway
+  config:
+    import:
+      - optional:nacos:gateway.properties?refresh=true
   cloud:
     nacos:
       server-addr: localhost:8848
@@ -12,21 +15,21 @@ spring:
         - id: patientservice # routing configuration
           uri: lb://patientservice # lb for load balance
           predicates:
-            - Path=/patient/**
+          - Path=/patient/**
 #          filters:
 #            - AddRequestHeader=rfp, This is routing filter of add request header for patient service!
         - id: doctorservice
           uri: lb://doctorservice
           predicates:
-            - Path=/doctor/**
+          - Path=/doctor/**
         - id: bookingservice
           uri: lb://bookingservice
           predicates:
-            - Path=/booking/**
+          - Path=/booking/**
         - id: paymentservice
           uri: lb://paymentservice
           predicates:
-            - Path=/payment/**
+          - Path=/payment/**
 #      default-filters:
 #        - AddRequestHeader=rf, This is routing filter of add request header for all service!
       globalcors:
@@ -45,9 +48,9 @@ spring:
             allowedHeaders: "*"
             allowCredentials: true # whether allow cookie
             maxAge: 360000
-  rabbitmq:
-    host: localhost
-    port: 5672
-    virtual-host: /
-    username: ph1nix
-    password: ph1nix
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    virtual-host: /
+#    username: ph1nix
+#    password: ph1nix

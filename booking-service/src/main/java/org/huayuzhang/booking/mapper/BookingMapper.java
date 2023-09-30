@@ -7,6 +7,8 @@
 
 package org.huayuzhang.booking.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.huayuzhang.booking.pojo.Booking;
 import org.apache.ibatis.annotations.Select;
 
@@ -23,5 +25,5 @@ public interface BookingMapper {
      * @return the queried data from SQL statement
      */
     @Select("select * from tb_booking where bkID = #{bkID}")
-    Booking findById(Long bkID);
+    Booking findById(@Param("bkID") Long bkID);
 }

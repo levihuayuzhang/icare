@@ -4,9 +4,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.huayuzhang.feign.config.DefaultFeignConfiguration;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.openfeign.FeignAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 @MapperScan("org.huayuzhang.booking.mapper")
 @SpringBootApplication
+@ImportAutoConfiguration({FeignAutoConfiguration.class})
 @EnableFeignClients(defaultConfiguration = DefaultFeignConfiguration.class, basePackages = "org.huayuzhang.feign.clients")
 public class BookingApplication {
     /**
