@@ -2,7 +2,7 @@
 version: "3.8"
 services:
   icare-nacos1:
-    platform: linux/amd64
+#    platform: linux/amd64
     image: nacos/nacos-server:${NACOS_VERSION}
     container_name: icare-nacos1
     networks:
@@ -26,7 +26,7 @@ services:
         condition: service_healthy
 
   icare-nacos2:
-    platform: linux/amd64
+#    platform: linux/amd64
     image: nacos/nacos-server:${NACOS_VERSION}
     container_name: icare-nacos2
     networks:
@@ -50,7 +50,7 @@ services:
         condition: service_healthy
 
   icare-nacos3:
-    platform: linux/amd64
+#    platform: linux/amd64
     image: nacos/nacos-server:${NACOS_VERSION}
     container_name: icare-nacos3
     networks:
@@ -74,7 +74,7 @@ services:
         condition: service_healthy
 
   icare-mysql:
-    platform: linux/amd64
+#    platform: linux/amd64
     container_name: icare-mysql
     build:
       context: .
@@ -106,7 +106,7 @@ services:
     volumes:
       - ../config/nginx.conf:/etc/nginx/nginx.conf
   icare-mysql-services:
-    platform: linux/amd64
+#    platform: linux/amd64
     container_name: icare-mysql-services
     image: mysql
     restart: always
@@ -126,7 +126,7 @@ services:
       retries: 10
   icare-patientservice:
     build: ./image/patient-service
-    platform: linux/amd64
+#    platform: linux/amd64
     depends_on:
       icare-nacos1:
         condition: service_healthy
@@ -141,7 +141,7 @@ services:
         ipv4_address: 172.16.238.16
   icare-doctorservice:
     build: ./image/doctor-service
-    platform: linux/amd64
+#    platform: linux/amd64
     depends_on:
       icare-nacos1:
         condition: service_healthy
@@ -156,7 +156,7 @@ services:
         ipv4_address: 172.16.238.17
   icare-bookingservice:
     build: ./image/booking-service
-    platform: linux/amd64
+#    platform: linux/amd64
     depends_on:
       icare-nacos1:
         condition: service_healthy
@@ -171,7 +171,7 @@ services:
         ipv4_address: 172.16.238.18
   icare-paymentservice:
     build: ./image/payment-service
-    platform: linux/amd64
+#    platform: linux/amd64
     depends_on:
       icare-nacos1:
         condition: service_healthy
@@ -186,7 +186,7 @@ services:
         ipv4_address: 172.16.238.19
   icare-gateway:
     build: ./image/gateway
-    platform: linux/amd64
+#    platform: linux/amd64
     depends_on:
       icare-nacos1:
         condition: service_healthy
