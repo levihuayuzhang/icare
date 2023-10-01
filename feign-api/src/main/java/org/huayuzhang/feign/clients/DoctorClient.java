@@ -5,7 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "doctorservice", url = "localhost:23002")
+@FeignClient(name = "doctorservice")
 public interface DoctorClient {
     /**
      * define the path mapping of feign API request
