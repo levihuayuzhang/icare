@@ -1,10 +1,10 @@
 # inspired by https://github.com/nacos-group/nacos-docker
 version: "3.8"
 services:
-  nacos1:
+  icare-nacos1:
     platform: linux/amd64
     image: nacos/nacos-server:${NACOS_VERSION}
-    container_name: nacos1
+    container_name: icare-nacos1
     networks:
       nacos_net:
         ipv4_address: 172.16.238.10
@@ -22,13 +22,13 @@ services:
       timeout: 10s
       retries: 10
     depends_on:
-      mysql:
+      icare-mysql:
         condition: service_healthy
 
-  nacos2:
+  icare-nacos2:
     platform: linux/amd64
     image: nacos/nacos-server:${NACOS_VERSION}
-    container_name: nacos2
+    container_name: icare-nacos2
     networks:
       nacos_net:
         ipv4_address: 172.16.238.11
@@ -46,13 +46,13 @@ services:
       timeout: 10s
       retries: 10
     depends_on:
-      mysql:
+      icare-mysql:
         condition: service_healthy
 
-  nacos3:
+  icare-nacos3:
     platform: linux/amd64
     image: nacos/nacos-server:${NACOS_VERSION}
-    container_name: nacos3
+    container_name: icare-nacos3
     networks:
       nacos_net:
         ipv4_address: 172.16.238.12
@@ -70,12 +70,12 @@ services:
       timeout: 10s
       retries: 10
     depends_on:
-      mysql:
+      icare-mysql:
         condition: service_healthy
 
-  mysql:
+  icare-mysql:
     platform: linux/amd64
-    container_name: mysql
+    container_name: icare-mysql
     build:
       context: .
       dockerfile: ./image/mysql/8/Dockerfile
@@ -94,7 +94,7 @@ services:
       interval: 5s
       timeout: 10s
       retries: 10
-  nginx:
+  icare-nginx:
     container_name: nginx
     image: nginx
     networks:
@@ -105,9 +105,9 @@ services:
       - "19888:19888"
     volumes:
       - ../config/nginx.conf:/etc/nginx/nginx.conf
-  mysql-services:
+  icare-mysql-services:
     platform: linux/amd64
-    container_name: mysql-services
+    container_name: icare-mysql-services
     image: mysql
     restart: always
     networks:
@@ -124,75 +124,75 @@ services:
       interval: 5s
       timeout: 10s
       retries: 10
-  patientservice:
+  icare-patientservice:
     build: ./image/patient-service
     platform: linux/amd64
     depends_on:
-      nacos1:
+      icare-nacos1:
         condition: service_healthy
-      nacos2:
+      icare-nacos2:
         condition: service_healthy
-      nacos3:
+      icare-nacos3:
         condition: service_healthy
     ports:
       - "23001:23001"
     networks:
       nacos_net:
         ipv4_address: 172.16.238.16
-  doctorservice:
+  icare-doctorservice:
     build: ./image/doctor-service
     platform: linux/amd64
     depends_on:
-      nacos1:
+      icare-nacos1:
         condition: service_healthy
-      nacos2:
+      icare-nacos2:
         condition: service_healthy
-      nacos3:
+      icare-nacos3:
         condition: service_healthy
     ports:
       - "23002:23002"
     networks:
       nacos_net:
         ipv4_address: 172.16.238.17
-  bookingservice:
+  icare-bookingservice:
     build: ./image/booking-service
     platform: linux/amd64
     depends_on:
-      nacos1:
+      icare-nacos1:
         condition: service_healthy
-      nacos2:
+      icare-nacos2:
         condition: service_healthy
-      nacos3:
+      icare-nacos3:
         condition: service_healthy
     ports:
       - "23003:23003"
     networks:
       nacos_net:
         ipv4_address: 172.16.238.18
-  paymentservice:
+  icare-paymentservice:
     build: ./image/payment-service
     platform: linux/amd64
     depends_on:
-      nacos1:
+      icare-nacos1:
         condition: service_healthy
-      nacos2:
+      icare-nacos2:
         condition: service_healthy
-      nacos3:
+      icare-nacos3:
         condition: service_healthy
     ports:
       - "23004:23004"
     networks:
       nacos_net:
         ipv4_address: 172.16.238.19
-  gateway:
+  icare-gateway:
     build: ./image/gateway
     platform: linux/amd64
     depends_on:
-      nacos1:
+      icare-nacos1:
         condition: service_healthy
-      nacos2:
+      icare-nacos2:
         condition: service_healthy
-      nacos3:
+      icare-nacos3:
         condition: service_healthy
     ports:
       - "20080:20080"
@@ -200,7 +200,7 @@ services:
       nacos_net:
         ipv4_address: 172.16.238.20
 networks:
-  nacos_net:
+  icare_net:
     driver: bridge
     ipam:
       driver: default

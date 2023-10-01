@@ -27,11 +27,11 @@ spring:
 #    username: ph1nix
 #    password: ph1nix
 mybatis:
-  type-aliases-package: org.huayuzhang.patient.pojo
+  type-aliases-package: org.ph1nix.patient.pojo
   configuration:
     map-underscore-to-camel-case: true
 logging:
   level:
-    org.huayuzhang: debug
+    org.ph1nix: debug
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss:SSS

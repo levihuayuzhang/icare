@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.huayuzhang</groupId>
+        <groupId>org.ph1nix</groupId>
         <artifactId>icare</artifactId>
         <version>1.0</version>
     </parent>
@@ -57,7 +57,7 @@
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.huayuzhang</groupId>
+            <groupId>org.ph1nix</groupId>
             <artifactId>feign-api</artifactId>
             <version>1.0</version>
         </dependency>

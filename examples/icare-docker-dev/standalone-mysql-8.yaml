@@ -1,7 +1,7 @@
 # https://github.com/nacos-group/nacos-docker/blob/master/example/standalone-mysql-8.yaml
 version: "3.8"
 services:
-  nacos:
+  icare-nacos:
     image: nacos/nacos-server:${NACOS_VERSION}
     container_name: icare-nacos-dev-standalone-mysql
     hostname: nacos-dev-1
@@ -13,10 +13,10 @@ services:
       - "8848:8848"
       - "9848:9848"
     depends_on:
-      mysql:
+      icare-mysql:
         condition: service_healthy
 #    restart: always
-  mysql:
+  icare-mysql:
     container_name: icare-mysql-dev
     hostname: mysql-dev-1
     build:
@@ -34,7 +34,7 @@ services:
       interval: 5s
       timeout: 10s
       retries: 10
-  rabbitmq:
+  icare-rabbitmq:
     image: rabbitmq:3.12.4-management
     container_name: icare-rabbitmq-dev
     hostname: mq-dev-1
