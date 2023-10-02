@@ -1,4 +1,4 @@
-package org.ph1nix.icare.gateway;
+package org.ph1nix.icare.gateway.mq;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-// @RunWith(SpringRunner.class)
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class SpringAmqpTest {
@@ -19,5 +18,23 @@ public class SpringAmqpTest {
         String queueName = "simple.queue";
         String msg = "Fk, this is simple queue!";
         rabbitTemplate.convertAndSend(queueName, msg);
+    }
+
+    @Test
+    public void testSendMsg2WorkQueue () {
+        String queueName = "simple.queue";
+        String msg = "Work queue msg - ";
+        for (int i = 1; i <= 50; i++) {
+            rabbitTemplate.convertAndSend(queueName, msg + i);
+        }
+    }
+
+    @Test
+    public void testSendMsg2FanoutExchange () {
+        String exchangeName = "icare.fanout";
+        String msg = "Fanout Exchange msg - ";
+        for (int i = 1; i <= 50; i++) {
+            rabbitTemplate.convertAndSend(exchangeName, "", msg + i);
+        }
     }
 }
