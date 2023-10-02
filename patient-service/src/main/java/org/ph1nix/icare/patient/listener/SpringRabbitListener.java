@@ -56,4 +56,24 @@ public class SpringRabbitListener {
     public void listenDirectQueue2(String msg) throws InterruptedException {
         System.out.println("\u001B[3mDirect Queue 2 Message received: [ " + msg +" ]\033[0m");
     }
+
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(name = "topic.queue1"),
+            exchange = @Exchange(name = "icare.topic", type = ExchangeTypes.TOPIC),
+            key = "sexy.#"
+    ))
+    public void listenTopicQueue1(String msg) throws InterruptedException {
+        System.out.println("Topic Queue 1 Message received: [ " + msg +" ]");
+    }
+
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(name = "topic.queue2"),
+            exchange = @Exchange(name = "icare.topic", type = ExchangeTypes.TOPIC),
+            key = "#.girls"
+    ))
+    public void listenTopicQueue2(String msg) throws InterruptedException {
+        System.err.println("-----------Topic Queue 2 Message received: [ " + msg +" ]");
+    }
+
+
 }

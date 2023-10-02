@@ -49,4 +49,16 @@ public class SpringAmqpTest {
             rabbitTemplate.convertAndSend(exchangeName, "doctor", msg + " doctor " + i);
         }
     }
+
+    @Test
+    public void testSendMsg2TopicExchange () {
+        String exchangeName = "icare.topic";
+        String msg = "Topic Exchange msg - ";
+        for (int i = 1; i <= 50; i++) {
+            rabbitTemplate.convertAndSend(exchangeName, "sexy.girls", msg + " sexy.girls "+ i);
+            rabbitTemplate.convertAndSend(exchangeName, "sexy.lady", msg + " sexy.lady " + i);
+            rabbitTemplate.convertAndSend(exchangeName, "hot.girls", msg + " hot.girls " + i);
+            rabbitTemplate.convertAndSend(exchangeName, "hot.lady", msg + " hot.lady " + i);
+        }
+    }
 }
