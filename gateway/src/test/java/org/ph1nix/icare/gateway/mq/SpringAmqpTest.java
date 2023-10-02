@@ -37,4 +37,16 @@ public class SpringAmqpTest {
             rabbitTemplate.convertAndSend(exchangeName, "", msg + i);
         }
     }
+
+    @Test
+    public void testSendMsg2DirectExchange () {
+        String exchangeName = "icare.direct";
+        String msg = "Direct Exchange msg - ";
+        for (int i = 1; i <= 50; i++) {
+            rabbitTemplate.convertAndSend(exchangeName, "booking", msg + " \033[0;35mbooking\033[0m "+ i);
+            rabbitTemplate.convertAndSend(exchangeName, "payment", msg + " \033[0;33mpayment\033[0m " + i);
+            rabbitTemplate.convertAndSend(exchangeName, "patient", msg + " patient " + i);
+            rabbitTemplate.convertAndSend(exchangeName, "doctor", msg + " doctor " + i);
+        }
+    }
 }

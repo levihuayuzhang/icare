@@ -22,8 +22,6 @@ Prepare for Database:
 
 Create corresponding tables for each Microservice and run SQL scripts under `examples/SQLs`.
 
-## Documentation
-JavaDoc: Rendered HTML JavaDoc is located in `Documenrations/JavaDoc`
 
 ## Requirement Capture (MoSCoW)
 - [x] (Must) Microservice for patient, healthcare provider, manager, logging system (web server and databases)
@@ -43,7 +41,11 @@ JavaDoc: Rendered HTML JavaDoc is located in `Documenrations/JavaDoc`
 - [ ] (Could) CDN (Content Distribution Network) support.
 
 ## Environment Information:
-JDK version: `OpenJDK` 21 LTS.
+- JDK: OpenJDK `21 LTS`
+- Spring Framework: `6`
+- Spring Boot: `3`
+- Spring Cloud: `2022.0.4`
+- Spring Cloud Alibaba: `2022.0.0.0`
 
 ## Demonstration for single request inside the system 
 
