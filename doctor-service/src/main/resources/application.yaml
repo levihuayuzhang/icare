@@ -23,11 +23,11 @@ spring:
     loadbalancer:
       enabled: true
 mybatis:
-  type-aliases-package: org.ph1nix.doctor.pojo
+  type-aliases-package: org.ph1nix.icare.doctor.pojo
   configuration:
     map-underscore-to-camel-case: true
 logging:
   level:
-    org.ph1nix: debug
+    org.ph1nix.icare: debug
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss:SSS

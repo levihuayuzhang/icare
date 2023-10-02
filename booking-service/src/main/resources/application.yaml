@@ -31,12 +31,12 @@ spring:
 #      simple:
 #        prefetch: 1
 mybatis:
-  type-aliases-package: org.ph1nix.booking.pojo
+  type-aliases-package: org.ph1nix.icare.booking.pojo
   configuration:
     map-underscore-to-camel-case: true
 logging:
   level:
-    org.ph1nix: debug
+    org.ph1nix.icare: debug
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss:SSS
 feign:

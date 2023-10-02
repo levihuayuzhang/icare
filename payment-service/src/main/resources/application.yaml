@@ -20,12 +20,12 @@ spring:
         server-addr: localhost:8848
         file-extension: yaml
 mybatis:
-  type-aliases-package: org.ph1nix.payment.pojo
+  type-aliases-package: org.ph1nix.icare.payment.pojo
   configuration:
     map-underscore-to-camel-case: true
 logging:
   level:
-    org.ph1nix: debug
+    org.ph1nix.icare: debug
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss:SSS
 feign:
