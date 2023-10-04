@@ -46,6 +46,9 @@ Create corresponding tables for each Microservice and run SQL scripts under `exa
 - Spring Boot: `3`
 - Spring Cloud: `2022.0.4`
 - Spring Cloud Alibaba: `2022.0.0.0`
+- Nacos `v2.2.3-slim`
+- Elastic Stack (Elasticsearch & Hibaba for now): `8.9.0`
+  - analyzer: ik `8.9.0`
 
 ## Demonstration for single request inside the system 
 

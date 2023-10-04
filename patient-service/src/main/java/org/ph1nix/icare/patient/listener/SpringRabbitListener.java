@@ -81,6 +81,4 @@ public class SpringRabbitListener {
     public void listenObjectQueue(Map<String, Object> msg) {
         System.out.println("Object Queue:" + msg);
     }
-
-
 }

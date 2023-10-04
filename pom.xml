@@ -16,6 +16,7 @@
         <module>feign-api</module>
         <module>gateway</module>
         <module>payment-service</module>
+        <module>icare-common-tools</module>
     </modules>
 
     <parent>
@@ -35,6 +36,7 @@
         <mysql.version>8.0.33</mysql.version>
         <mybatis.version>2.3.1</mybatis.version>
         <lombok.version>1.18.30</lombok.version>
+        <elasticsearch-client.version>8.9.0</elasticsearch-client.version>
     </properties>
 
     <dependencyManagement>
@@ -85,15 +87,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
-        <!--        message sender json serialize-->
-<!--        <dependency>-->
-<!--            <groupId>com.fasterxml.jackson.dataformat</groupId>-->
-<!--            <artifactId>jackson-dataformat-xml</artifactId>-->
-<!--            <version>2.15.2</version>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>co.elastic.clients</groupId>
+            <artifactId>elasticsearch-java</artifactId>
         </dependency>
     </dependencies>
 
@@ -124,6 +124,16 @@
             <releases>
                 <enabled>true</enabled>
             </releases>
+        </repository>
+        <repository>
+            <id>spring</id>
+            <url>https://maven.aliyun.com/repository/spring</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </repositories>
 

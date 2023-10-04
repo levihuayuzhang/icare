@@ -1,0 +1,103 @@
+# nacos example:https://github.com/nacos-group/nacos-docker/tree/master
+version: "3.8"
+
+volumes:
+#  certs:
+#    driver: local
+  es-data:
+    driver: local
+#  es-plugins:
+#    driver: local
+  kibana-data:
+    driver: local
+#  metricbeat-data:
+#    driver: local
+#  filebeat-data:
+#    driver: local
+#  logstash-data:
+#    driver: local
+networks:
+  icare:
+    name: icare
+#    external: false
+
+services:
+  icare-nacos:
+    image: nacos/nacos-server:${NACOS_VERSION}
+    container_name: icare-nacos-dev-standalone-mysql
+    hostname: nacos-dev-1
+    env_file:
+      - ./env/nacos-standlone-mysql.env
+    volumes:
+      - ./tmp/standalone-logs/:/home/nacos/logs
+    networks:
+      - icare
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+    depends_on:
+      icare-mysql:
+        condition: service_healthy
+#    restart: always
+  icare-mysql:
+    container_name: icare-mysql-dev
+    hostname: mysql-dev-1
+    build:
+      context: .
+      dockerfile: ./image/mysql/8/Dockerfile
+    image: example/mysql:8.0.30
+    env_file:
+      - ./env/mysql.env
+    volumes:
+      - ./tmp/mysql:/var/lib/mysql
+    networks:
+      - icare
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+  icare-rabbitmq:
+    image: rabbitmq:3.12.4-management
+    container_name: icare-rabbitmq-dev
+    hostname: mq-dev-1
+    env_file:
+      - ./env/rabbitmq.env
+    networks:
+      - icare
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+  icare-es:
+    image: elasticsearch:${STACK_VERSION}
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+      - "ES_JAVA_OPS=-Xms512m -Xmx512m"
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+      - ${PWD}/tmp/es-plugins:/usr/share/elasticsearch/plugins
+    privileged: true
+#    user: root
+    networks:
+      - icare
+    ports:
+      - ${ES_PORT}:9200
+      - 9300:9300
+#    entrypoint: ["./bin/elasticsearch-plugin", "install", "--batch", "https://ghproxy.com/https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v8.9.0/elasticsearch-analysis-ik-8.9.0.zip"]
+  icare-kibana:
+    container_name: icare-kibana
+    image: kibana:${STACK_VERSION}
+    environment:
+      - ELASTICSEARCH_HOSTS=http://icare-es:9200
+    volumes:
+      - kibana-data:/usr/share/kibana/data
+    networks:
+      - icare
+    ports:
+      - ${KIBANA_PORT}:5601
+    depends_on:
+      - icare-es
+
