@@ -1,4 +1,4 @@
-package org.ph1nix.icare.patient.pojo;
+package org.ph1nix.icare.patient.hotel.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

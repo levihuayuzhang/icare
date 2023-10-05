@@ -6,12 +6,14 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 /**
  *
  */
-// @MapperScan("org.ph1nix.icare.patient.mapper")
-// @SpringBootApplication
+@MapperScan("org.ph1nix.icare.patient.mapper")
+@SpringBootApplication
 public class PatientApplication {
     public static void main(String[] args) {
         SpringApplication.run(PatientApplication.class, args);

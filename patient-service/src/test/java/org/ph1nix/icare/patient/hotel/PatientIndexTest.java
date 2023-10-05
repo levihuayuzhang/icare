@@ -1,51 +1,42 @@
-package org.ph1nix.icare.patient;
+package org.ph1nix.icare.patient.hotel;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.elasticsearch.core.*;
 import co.elastic.clients.elasticsearch.core.bulk.BulkResponseItem;
 import co.elastic.clients.elasticsearch.indices.CreateIndexRequest;
 import co.elastic.clients.elasticsearch.indices.DeleteIndexRequest;
-import co.elastic.clients.elasticsearch.indices.GetIndexRequest;
 import co.elastic.clients.json.JsonData;
-import co.elastic.clients.json.JsonpMapper;
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
 import co.elastic.clients.transport.rest_client.RestClientTransport;
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectReader;
-import jakarta.json.stream.JsonParser;
-import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j;
-import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
-import org.elasticsearch.client.RequestOptions;
+import org.apache.ibatis.annotations.Mapper;
 import org.elasticsearch.client.RestClient;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.ph1nix.icare.patient.pojo.Hotel;
-import org.ph1nix.icare.patient.pojo.HotelDoc;
-import org.ph1nix.icare.patient.pojo.Human;
-import org.ph1nix.icare.patient.service.IHotelService;
-import org.ph1nix.icare.patient.service.impl.HotelService;
-import org.slf4j.Logger;
+import org.mybatis.spring.annotation.MapperScan;
+import org.ph1nix.icare.patient.hotel.pojo.Hotel;
+import org.ph1nix.icare.patient.hotel.pojo.HotelDoc;
+import org.ph1nix.icare.patient.hotel.pojo.Human;
+import org.ph1nix.icare.patient.hotel.service.IHotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import java.io.*;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-import static com.mysql.cj.conf.PropertyKey.logger;
-
 @Slf4j(topic = "icare.es.test")
-@SpringBootTest
+@SpringBootTest(classes = HotelDemoApplication.class) // for multiple application class
 public class PatientIndexTest {
     @Autowired
     IHotelService hotelService;
@@ -56,7 +47,11 @@ public class PatientIndexTest {
     private ElasticsearchClient client;
     private String host = "localhost";
     private int port = 9200;
-    private FileReader file;
+    private FileReader file = new FileReader(new File("src/test/java/org/ph1nix/icare/patient/hotel/", "hotelIndex.json"));
+
+    // use for trow exceptions
+    public PatientIndexTest() throws FileNotFoundException {
+    }
 
     @Test
     void testInit() {
@@ -214,12 +209,13 @@ public class PatientIndexTest {
 
     /**
      * add all data from mysql to es with bulk request
+     * <a href="https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/current/indexing-bulk.html">es doc</a>
      *
      * @throws IOException
      */
     @Test
     void testBulk() throws IOException {
-        List<Hotel> listHotel = hotelService.list(); // get hotel list
+        List<Hotel> listHotel = hotelService.list(); // get hotel list, this requires spring application (Hotel)
         BulkRequest.Builder br = new BulkRequest.Builder();
 
         for (Hotel ht : listHotel) {
@@ -248,6 +244,11 @@ public class PatientIndexTest {
         }
     }
 
+    /**
+     * initialize the es client before each test
+     *
+     * @throws IOException
+     */
     @BeforeEach
     void setUp() throws IOException {
         restClient = RestClient
@@ -255,7 +256,6 @@ public class PatientIndexTest {
                 .build();
         transport = new RestClientTransport(restClient, new JacksonJsonpMapper());
         client = new ElasticsearchClient(transport);
-        file = new FileReader(new File("src/test/java/org/ph1nix/icare/patient/", "hotelIndex.json"));
     }
 
     @AfterEach
