@@ -14,22 +14,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
-import org.apache.ibatis.annotations.Mapper;
 import org.elasticsearch.client.RestClient;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mybatis.spring.annotation.MapperScan;
 import org.ph1nix.icare.patient.hotel.pojo.Hotel;
 import org.ph1nix.icare.patient.hotel.pojo.HotelDoc;
 import org.ph1nix.icare.patient.hotel.pojo.Human;
 import org.ph1nix.icare.patient.hotel.service.IHotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import java.io.*;
 import java.util.List;
@@ -40,8 +34,6 @@ import java.util.Objects;
 public class PatientIndexTest {
     @Autowired
     IHotelService hotelService;
-
-    // IHotelService hotelService = new HotelService();
     private RestClient restClient;
     private ElasticsearchTransport transport;
     private ElasticsearchClient client;

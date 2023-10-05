@@ -6,10 +6,11 @@ spring:
   config:
     import:
       - optional:nacos:gateway.properties?refresh=true
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
   cloud:
     nacos:
       server-addr: localhost:8848
-#      server-addr: 172.16.238.14:18888
     gateway:
       routes:
         - id: patientservice # routing configuration
