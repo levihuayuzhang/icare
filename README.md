@@ -43,12 +43,12 @@ Create corresponding tables for each Microservice and run SQL scripts under `exa
 ## Environment Information:
 - JDK: OpenJDK `21 LTS`
 - Spring Framework: `6`
-- Spring Boot: `3`
+- Spring Boot: `3.1`
 - Spring Cloud: `2022.0.4`
 - Spring Cloud Alibaba: `2022.0.0.0`
 - Nacos `v2.2.3-slim`
-- Elastic Stack (Elasticsearch & Hibaba for now): `8.9.0`
-  - analyzer: ik `8.9.0`
+- Elastic Stack (Elasticsearch & Hibaba for now): `8.8.2`
+  - analyzer: ik `8.8.2`
 
 ## Demonstration for single request inside the system 
 

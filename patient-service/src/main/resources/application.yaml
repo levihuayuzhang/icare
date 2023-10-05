@@ -38,3 +38,7 @@ logging:
     org.ph1nix.icare: debug
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss:SSS
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: org.ph1nix.icare.patient.pojo

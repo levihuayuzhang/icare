@@ -10,7 +10,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tb_booking`;
 CREATE TABLE `tb_booking`  (
                               `bkID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'booking ID',
-                              `bkDate` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'booking date',
+#                               `bkDate` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'booking date',
+                              `bkDate` DATE COMMENT 'booking date',
                               `bkSlot` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'booking slot',
                               `docID` bigint(20) NOT NULL COMMENT 'doctor ID',
                               `ptID` bigint(20) NOT NULL COMMENT 'patient ID',
