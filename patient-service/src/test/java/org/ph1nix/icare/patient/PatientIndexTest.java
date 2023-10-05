@@ -2,6 +2,7 @@ package org.ph1nix.icare.patient;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.elasticsearch.core.*;
+import co.elastic.clients.elasticsearch.core.bulk.BulkResponseItem;
 import co.elastic.clients.elasticsearch.indices.CreateIndexRequest;
 import co.elastic.clients.elasticsearch.indices.DeleteIndexRequest;
 import co.elastic.clients.elasticsearch.indices.GetIndexRequest;
@@ -15,6 +16,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import jakarta.json.stream.JsonParser;
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
@@ -26,18 +31,26 @@ import org.ph1nix.icare.patient.pojo.HotelDoc;
 import org.ph1nix.icare.patient.pojo.Human;
 import org.ph1nix.icare.patient.service.IHotelService;
 import org.ph1nix.icare.patient.service.impl.HotelService;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.*;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
-// @SpringBootTest
+import static com.mysql.cj.conf.PropertyKey.logger;
+
+@Slf4j(topic = "icare.es.test")
+@SpringBootTest
 public class PatientIndexTest {
-    // @Autowired
-    // IHotelService hotelService;
-    IHotelService hotelService = new HotelService();
+    @Autowired
+    IHotelService hotelService;
+
+    // IHotelService hotelService = new HotelService();
     private RestClient restClient;
     private ElasticsearchTransport transport;
     private ElasticsearchClient client;
@@ -81,6 +94,7 @@ public class PatientIndexTest {
 
     /**
      * store json file into es
+     * update full documentation or create a new one if not exist already
      *
      * @throws IOException
      */
@@ -93,13 +107,13 @@ public class PatientIndexTest {
                 return c
                         .index("hotel")
                         .id("1") // with id
-                        .withJson(new FileReader("src/test/java/org/ph1nix/icare/patient/hotel1.json"));
+                        .withJson(new FileReader("src/test/java/org/ph1nix/icare/patient/hotel1.json")); // content root (module working directory)
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }
         });
 
-        System.out.println(client.index(req));
+        System.out.println(client.index(req).result());
     }
 
     @Test
@@ -134,47 +148,104 @@ public class PatientIndexTest {
     }
 
     @Test
-    void testGetHotelDoc() throws IOException, NoSuchFieldException {
-        GetRequest request = GetRequest.of(g->g.index("hotel").id("36934"));
-        GetResponse response = client.get(request, HotelDoc.class); // indicate class or type, deserialize json to object
+    void testGetHotelDoc() throws IOException{
+        HotelDoc hotelDoc1 = client.get(GetRequest.of(g -> g
+                    .index("hotel")
+                    .id("36934"))
+                , HotelDoc.class).source(); // indicate class or type, deserialize json to object
+        System.out.println("ID: " + Objects.requireNonNull(hotelDoc1).getId() + " price: " + hotelDoc1.getPrice());
 
-        // System.out.println(response);
-        // System.out.println(response.source());
-        // System.out.println(response.source().getClass());
-        HotelDoc hotelDoc = (HotelDoc) response.source();
-        System.out.println("ID: " + hotelDoc.getId() + " price: " + hotelDoc.getPrice());
+        HotelDoc hotelDoc2 = client.get(GetRequest.of(g -> g
+                        .index("hotel")
+                        .id("38812"))
+                , HotelDoc.class).source(); // indicate class or type, deserialize json to object
+        System.out.println("ID: " + Objects.requireNonNull(hotelDoc2).getId() + " price: " + hotelDoc2.getPrice());
 
-        // get human name
-        System.out.println(client.get(GetRequest.of(g->g
-                .index("hotel")
-                .id("1")
-        ), Human.class)
-                .source()
-                .getName());
+        if (client.get(GetRequest.of(g -> g
+                        .index("hotel")
+                        .id("1")
+                ), Human.class)
+                .source() != null) {
+
+            // get human name or age
+            System.out.println(Objects.requireNonNull(client.get(GetRequest.of(g -> g
+                                    .index("hotel")
+                                    .id("1")
+                            ), Human.class)
+                            .source())
+                    // .getAge());
+                    .getName());
+
+            System.out.println(client.get(GetRequest.of(g -> g
+                            .index("hotel")
+                            .id("1")
+                    ), Human.class)
+                    .source()); // get pojo object
+        }
+
     }
 
+    /**
+     * insertion update (partial document)
+     *
+     * @throws IOException
+     */
     @Test
-    void testDeleteHotelDoc() throws IOException {
-        DeleteRequest request = DeleteRequest.of(d -> d
-                .index("hotel")
-                .id("1")); // with id
-
-        System.out.println(client.delete(request));
-    }
-
-    @Test
-    void testUpdateDocById1() throws IOException {
+    void testUpdateDocById() throws IOException {
         // create object
         Human human = new Human();
-        human.setAge(18);
-        human.setName("Ass");
+        human.setAge(17);
+        // human.setName("Damn");
 
-        UpdateRequest request = UpdateRequest.of(u -> u
+        System.out.println(client.update(UpdateRequest.of(u -> u
+                        .index("hotel")
+                        .id("1")
+                        .doc(human)) // bind object and parse value
+                , Human.class).result());
+    }
+
+    @Test
+    void testDeleteDocById() throws IOException {
+        System.out.println(client.delete(d -> d
                 .index("hotel")
                 .id("1")
-                .doc(human)); // bind object and parse value
+        ).result());
+    }
 
-        System.out.println(client.update(request, Human.class).result());
+    /**
+     * add all data from mysql to es with bulk request
+     *
+     * @throws IOException
+     */
+    @Test
+    void testBulk() throws IOException {
+        List<Hotel> listHotel = hotelService.list(); // get hotel list
+        BulkRequest.Builder br = new BulkRequest.Builder();
+
+        for (Hotel ht : listHotel) {
+            HotelDoc hd = new HotelDoc(ht); // make each hotel to hotel doc
+
+            br.operations(op -> op
+                    .index(idx -> idx
+                            .index("hotel")
+                            .id(hd.getId().toString())
+                            .document(hd)));
+        }
+
+        BulkResponse result = client.bulk(br.build());
+
+        // error handling
+        if (result.errors()) {
+            log.error("Bulk had error(s)");
+
+            for (BulkResponseItem item : result.items()) {
+                if (item.error() != null) {
+                    log.error(item.error().reason());
+                }
+            }
+        } else {
+            System.out.println(result);
+        }
     }
 
     @BeforeEach
