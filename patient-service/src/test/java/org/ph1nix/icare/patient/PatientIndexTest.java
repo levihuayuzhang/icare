@@ -23,6 +23,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.ph1nix.icare.patient.pojo.Hotel;
 import org.ph1nix.icare.patient.pojo.HotelDoc;
+import org.ph1nix.icare.patient.pojo.Human;
 import org.ph1nix.icare.patient.service.IHotelService;
 import org.ph1nix.icare.patient.service.impl.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -128,6 +129,7 @@ public class PatientIndexTest {
 
     @Test
     void testExistHotelDoc() throws IOException {
+        System.out.println(client.exists(e->e.index("hotel").id("1")).value());
         System.out.println(client.exists(e->e.index("hotel").id("36934")).value());
     }
 
@@ -136,11 +138,19 @@ public class PatientIndexTest {
         GetRequest request = GetRequest.of(g->g.index("hotel").id("36934"));
         GetResponse response = client.get(request, HotelDoc.class); // indicate class or type, deserialize json to object
 
-        System.out.println(response);
-        System.out.println(response.source());
-        System.out.println(response.source().getClass());
+        // System.out.println(response);
+        // System.out.println(response.source());
+        // System.out.println(response.source().getClass());
         HotelDoc hotelDoc = (HotelDoc) response.source();
         System.out.println("ID: " + hotelDoc.getId() + " price: " + hotelDoc.getPrice());
+
+        // get human name
+        System.out.println(client.get(GetRequest.of(g->g
+                .index("hotel")
+                .id("1")
+        ), Human.class)
+                .source()
+                .getName());
     }
 
     @Test
@@ -152,7 +162,20 @@ public class PatientIndexTest {
         System.out.println(client.delete(request));
     }
 
+    @Test
+    void testUpdateDocById1() throws IOException {
+        // create object
+        Human human = new Human();
+        human.setAge(18);
+        human.setName("Ass");
 
+        UpdateRequest request = UpdateRequest.of(u -> u
+                .index("hotel")
+                .id("1")
+                .doc(human)); // bind object and parse value
+
+        System.out.println(client.update(request, Human.class).result());
+    }
 
     @BeforeEach
     void setUp() throws IOException {
