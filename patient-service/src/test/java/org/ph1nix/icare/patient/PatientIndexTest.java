@@ -6,10 +6,15 @@ import co.elastic.clients.elasticsearch.indices.CreateIndexRequest;
 import co.elastic.clients.elasticsearch.indices.DeleteIndexRequest;
 import co.elastic.clients.elasticsearch.indices.GetIndexRequest;
 import co.elastic.clients.json.JsonData;
+import co.elastic.clients.json.JsonpMapper;
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
 import co.elastic.clients.transport.rest_client.RestClientTransport;
 import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
+import jakarta.json.stream.JsonParser;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
@@ -19,6 +24,7 @@ import org.junit.jupiter.api.Test;
 import org.ph1nix.icare.patient.pojo.Hotel;
 import org.ph1nix.icare.patient.pojo.HotelDoc;
 import org.ph1nix.icare.patient.service.IHotelService;
+import org.ph1nix.icare.patient.service.impl.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -26,16 +32,18 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Map;
 
-@SpringBootTest
+// @SpringBootTest
 public class PatientIndexTest {
-    @Autowired
-    IHotelService hotelService;
+    // @Autowired
+    // IHotelService hotelService;
+    IHotelService hotelService = new HotelService();
     private RestClient restClient;
     private ElasticsearchTransport transport;
     private ElasticsearchClient client;
     private String host = "localhost";
     private int port = 9200;
     private FileReader file;
+
     @Test
     void testInit() {
         System.out.println(restClient);
@@ -71,7 +79,7 @@ public class PatientIndexTest {
     }
 
     /**
-     * store json document into es
+     * store json file into es
      *
      * @throws IOException
      */
@@ -96,14 +104,23 @@ public class PatientIndexTest {
     @Test
     void createHotelDoc2() throws IOException {
 
-        Hotel hotel = hotelService.getById(36934L);
+        Hotel hotel = hotelService.getById(36934L); // from database
         HotelDoc hotelDoc = new HotelDoc(hotel);
+        ObjectMapper mapper = new ObjectMapper();
 
         IndexRequest<JsonData> req;
-        req = IndexRequest.of(c->c
-                .index("hotel")
-                .id(hotel.getId().toString())
-                .document((JsonData) hotelDoc)
+        req = IndexRequest.of(c-> {
+                    try {
+                        return c
+                                .index("hotel")
+                                .id(hotel.getId().toString())
+                                .withJson(new StringReader( // Reader for json
+                                        mapper.writeValueAsString( // map object and write to string
+                                                JSON.toJSON(hotelDoc)))); // serialize
+                    } catch (JsonProcessingException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
         );
 
         System.out.println(client.index(req));
@@ -111,13 +128,19 @@ public class PatientIndexTest {
 
     @Test
     void testExistHotelDoc() throws IOException {
-        System.out.println(client.exists(e->e.index("hotel").id("1")).value());
+        System.out.println(client.exists(e->e.index("hotel").id("36934")).value());
     }
 
     @Test
-    void testGetHotelDoc() throws IOException {
-        GetRequest request = GetRequest.of(g->g.index("hotel").id("1"));
-        // System.out.println(client.get(request, );
+    void testGetHotelDoc() throws IOException, NoSuchFieldException {
+        GetRequest request = GetRequest.of(g->g.index("hotel").id("36934"));
+        GetResponse response = client.get(request, HotelDoc.class); // indicate class or type, deserialize json to object
+
+        System.out.println(response);
+        System.out.println(response.source());
+        System.out.println(response.source().getClass());
+        HotelDoc hotelDoc = (HotelDoc) response.source();
+        System.out.println("ID: " + hotelDoc.getId() + " price: " + hotelDoc.getPrice());
     }
 
     @Test
