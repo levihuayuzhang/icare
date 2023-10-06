@@ -46,6 +46,7 @@ examples/icare-docker-dev/tmp
 *.log
 *.jar
 *.zip
+.idea
 
 #testing/Jmeter/result/
 #testing/Jmeter/webreport
