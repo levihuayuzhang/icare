@@ -1,0 +1,29 @@
+server:
+  port: 8089
+spring:
+  config:
+    import:
+      - optional:nacos:patient-service.properties?refresh=true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      #        namespace: xx
+      #        cluster-name: GLA
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+  datasource:
+    url: jdbc:mysql://localhost:3306/hotel?useSSL=false
+    username: root
+    password: root
+#    driver-class-name: com.mysql.jdbc.Driver
+logging:
+  level:
+    cn.itcast: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: org.icare.patient.hotel.pojo

@@ -17,9 +17,9 @@ volumes:
 #  logstash-data:
 #    driver: local
 networks:
-  icare:
-    name: icare
-#    external: false
+  icare-dev:
+    name: icare-dev
+#    external: true
 
 services:
   icare-nacos:
@@ -31,7 +31,7 @@ services:
     volumes:
       - ./tmp/standalone-logs/:/home/nacos/logs
     networks:
-      - icare
+      - icare-dev
     ports:
       - "8848:8848"
       - "9848:9848"
@@ -51,7 +51,7 @@ services:
     volumes:
       - ./tmp/mysql:/var/lib/mysql
     networks:
-      - icare
+      - icare-dev
     ports:
       - "3306:3306"
     healthcheck:
@@ -66,7 +66,7 @@ services:
     env_file:
       - ./env/rabbitmq.env
     networks:
-      - icare
+      - icare-dev
     ports:
       - "15672:15672"
       - "5672:5672"
@@ -82,7 +82,7 @@ services:
     privileged: true
 #    user: root
     networks:
-      - icare
+      - icare-dev
     ports:
       - ${ES_PORT}:9200
       - 9300:9300
@@ -95,7 +95,7 @@ services:
     volumes:
       - kibana-data:/usr/share/kibana/data
     networks:
-      - icare
+      - icare-dev
     ports:
       - ${KIBANA_PORT}:5601
     depends_on:

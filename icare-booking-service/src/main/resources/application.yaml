@@ -1,0 +1,50 @@
+server:
+  port: 23003
+spring:
+  application:
+    name: bookingservice
+  config:
+    import:
+      - optional:nacos:booking-service.properties?refresh=true
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloud_booking?useSSL=false
+    username: root
+    password: root
+  #    driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    nacos:
+      #      server-addr: 172.16.238.14:18888  # internal IP address of Docker Network (Nacos Network) and port of Nginx (reverse proxy for Nacos clusters)
+      server-addr: localhost:8848  # internal IP address of Docker Network (Nacos Network) and port of Nginx (reverse proxy for Nacos clusters)
+      config:
+        file-extension: yaml
+      discovery:
+        # server-addr: 172.16.238.14:18888
+        cluster-name: GLA
+        # namespace: xx
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    virtual-host: /
+#    username: ph1nix
+#    password: ph1nix
+#    listener:
+#      simple:
+#        prefetch: 1
+mybatis:
+  type-aliases-package: org.icare.booking.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    org.icare: debug
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss:SSS
+feign:
+  client:
+    config:
+      default:
+        logger-level: FULL
+  httpclient:
+    enabled: true
+    max-connections: 1000
+    max-connections-per-route: 250

@@ -1,4 +1,4 @@
-package org.ph1nix.icare;
+package org.icare;
 
 public class Constants {
     public static final String START_UP_ART =

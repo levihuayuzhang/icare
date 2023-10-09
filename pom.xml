@@ -4,18 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.ph1nix.icare</groupId>
+    <groupId>org.icare</groupId>
     <artifactId>icare</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>patient-service</module>
-        <module>doctor-service</module>
-        <module>booking-service</module>
-        <module>feign-api</module>
-        <module>gateway</module>
-        <module>payment-service</module>
+        <module>icare-patient-service</module>
+        <module>icare-doctor-service</module>
+        <module>icare-booking-service</module>
+        <module>icare-feign-api</module>
+        <module>icare-gateway</module>
+        <module>icare-payment-service</module>
         <module>icare-common-tools</module>
     </modules>
 
@@ -105,6 +105,16 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>2.0.40</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.20.0</version>
         </dependency>
     </dependencies>
 
