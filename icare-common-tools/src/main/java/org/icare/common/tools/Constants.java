@@ -1,4 +1,4 @@
-package org.icare;
+package org.icare.common.tools;
 
 public class Constants {
     public static final String START_UP_ART =

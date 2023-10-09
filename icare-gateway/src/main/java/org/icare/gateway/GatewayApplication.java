@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import static org.icare.Constants.START_UP_ART;
+import static org.icare.common.tools.Constants.START_UP_ART;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class }) // gateway don't need to access database
 public class GatewayApplication {

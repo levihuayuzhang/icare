@@ -6,9 +6,8 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import static org.icare.Constants.START_UP_ART;
+
+import static org.icare.common.tools.Constants.START_UP_ART;
 
 /**
  *

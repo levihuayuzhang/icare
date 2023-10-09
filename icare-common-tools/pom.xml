@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>icare-common-tools</artifactId>
+    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>

@@ -3,7 +3,7 @@ package org.icare.doctor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import static org.icare.Constants.START_UP_ART;
+import static org.icare.common.tools.Constants.START_UP_ART;
 
 @MapperScan("org.icare.doctor.mapper")
 @SpringBootApplication

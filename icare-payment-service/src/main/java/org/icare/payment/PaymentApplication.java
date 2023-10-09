@@ -10,7 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
-import static org.icare.Constants.START_UP_ART;
+import static org.icare.common.tools.Constants.START_UP_ART;
 
 @MapperScan("org.icare.payment.mapper")
 @SpringBootApplication
